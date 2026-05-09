@@ -582,7 +582,7 @@ footer{background:var(--dark);padding:56px 5% 28px}
     <a onclick="showPage('agent')">Agent Dashboard</a>
   </div>
   <div class="nav-right">
-    <button class="nav-cta" id="nav-auth-btn" onclick="openAuth()">Login / Sign Up</button>
+    <button class="nav-cta" id="nav-auth-btn">Login / Sign Up</button>
     <div class="hamburger" onclick="toggleMobileMenu()">
       <span></span><span></span><span></span>
     </div>
@@ -1329,11 +1329,15 @@ document.querySelectorAll('.modal-overlay').forEach(overlay=>{
 // ── SUPABASE ──
 const SUPA_URL='https://qrheqgilbhxdzppgelzh.supabase.co';
 const SUPA_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFyaGVxZ2lsYmh4ZHpwcGdlbHpoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgzMzkxNDEsImV4cCI6MjA5MzkxNTE0MX0.Vaoo_0VJepdC8xD34NXh_WMsh3XF49FdaHUhXWk06r0';
-const supabase=window.supabase.createClient(SUPA_URL,SUPA_KEY);
+// Renamed to sbClient to avoid clash with window.supabase from the CDN
+const sbClient=window.supabase.createClient(SUPA_URL,SUPA_KEY);
 let currentUser=null;
 
-supabase.auth.getSession().then(({data:{session}})=>{if(session)setLoggedIn(session.user)});
-supabase.auth.onAuthStateChange((_,session)=>{if(session)setLoggedIn(session.user);else setLoggedOut()});
+// Wire nav button here so openAuth is guaranteed defined
+document.getElementById('nav-auth-btn').addEventListener('click',openAuth);
+
+sbClient.auth.getSession().then(({data:{session}})=>{if(session)setLoggedIn(session.user)});
+sbClient.auth.onAuthStateChange((_,session)=>{if(session)setLoggedIn(session.user);else setLoggedOut()});
 
 function setLoggedIn(user){
   currentUser=user;
@@ -1351,11 +1355,12 @@ function setLoggedOut(){
   currentUser=null;
   const btn=document.getElementById('nav-auth-btn');
   btn.textContent='Login / Sign Up';
-  btn.onclick=openAuth;
+  btn.replaceWith(btn.cloneNode(true)); // remove old listeners
+  document.getElementById('nav-auth-btn').addEventListener('click',openAuth);
 }
 
 async function doLogout(){
-  await supabase.auth.signOut();
+  await sbClient.auth.signOut();
   showToast('Logged out. See you soon! 👋');
 }
 
@@ -1380,7 +1385,7 @@ async function doLogin(){
   if(!email||!password){showToast('⚠️ Please enter your email and password','error');return}
   const btn=document.getElementById('login-btn');
   btn.textContent='Logging in…';btn.disabled=true;
-  const {error}=await supabase.auth.signInWithPassword({email,password});
+  const {error}=await sbClient.auth.signInWithPassword({email,password});
   btn.textContent='Login to EasyHomes →';btn.disabled=false;
   if(error){showToast('❌ '+error.message,'error');return}
   closeModal('auth-modal');
@@ -1398,7 +1403,7 @@ async function doSignup(){
   btn.textContent='Creating account…';btn.disabled=true;
   const meta={first_name:firstName,last_name:lastName,phone,role:selectedRole};
   if(agentPhotoDataUrl) meta.avatar_url=agentPhotoDataUrl;
-  const {error}=await supabase.auth.signUp({email,password,options:{data:meta}});
+  const {error}=await sbClient.auth.signUp({email,password,options:{data:meta}});
   btn.textContent='Create Account →';btn.disabled=false;
   if(error){showToast('❌ '+error.message,'error');return}
   closeModal('auth-modal');
@@ -1408,7 +1413,7 @@ async function doSignup(){
 async function doPasswordReset(){
   const email=document.getElementById('login-email').value.trim();
   if(!email){showToast('⚠️ Enter your email above first','error');return}
-  const {error}=await supabase.auth.resetPasswordForEmail(email,{redirectTo:'https://easywise.github.io/EasyHomes/'});
+  const {error}=await sbClient.auth.resetPasswordForEmail(email,{redirectTo:'https://easywise.github.io/EasyHomes/'});
   if(error){showToast('❌ '+error.message,'error');return}
   showToast('📧 Password reset email sent! Check your inbox.');
 }
