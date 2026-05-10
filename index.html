@@ -883,21 +883,21 @@ footer{background:var(--dark);padding:56px 5% 28px}
     <div>
       <button class="back-btn" onclick="showPage('home')" style="margin:0 0 10px 0">← Back to Home</button>
       <h1>Agent Dashboard</h1>
-      <p id="agent-welcome">Welcome back, Adebayo Oluwaseun 👋</p>
+      <p id="agent-welcome">Welcome back 👋</p>
     </div>
     <button class="add-listing-btn" onclick="openAddListing()">+ Add New Listing</button>
   </div>
   <div class="dashboard-body">
     <div class="stats-row">
-      <div class="stat-card"><div class="stat-icon si-green">🏠</div><div class="stat-n">14</div><div class="stat-l">Active Listings</div><div class="stat-trend trend-up">↑ 2 this month</div></div>
-      <div class="stat-card"><div class="stat-icon si-gold">👁️</div><div class="stat-n">2,840</div><div class="stat-l">Profile Views</div><div class="stat-trend trend-up">↑ 18% this week</div></div>
-      <div class="stat-card"><div class="stat-icon si-blue">📩</div><div class="stat-n">31</div><div class="stat-l">Enquiries</div><div class="stat-trend trend-up">↑ 7 new today</div></div>
-      <div class="stat-card"><div class="stat-icon si-red">🤝</div><div class="stat-n">6</div><div class="stat-l">Deals Closed</div><div class="stat-trend trend-dn">↓ 1 vs last month</div></div>
+      <div class="stat-card"><div class="stat-icon si-green">🏠</div><div class="stat-n">0</div><div class="stat-l">Active Listings</div><div class="stat-trend">No listings yet</div></div>
+      <div class="stat-card"><div class="stat-icon si-gold">👁️</div><div class="stat-n">0</div><div class="stat-l">Profile Views</div><div class="stat-trend">—</div></div>
+      <div class="stat-card"><div class="stat-icon si-blue">📩</div><div class="stat-n">0</div><div class="stat-l">Enquiries</div><div class="stat-trend">No enquiries yet</div></div>
+      <div class="stat-card"><div class="stat-icon si-red">🤝</div><div class="stat-n">0</div><div class="stat-l">Deals Closed</div><div class="stat-trend">—</div></div>
     </div>
     <div class="dash-grid">
       <div>
         <div class="dash-card">
-          <h3>My Listings (14)</h3>
+          <h3>My Listings</h3>
           <div id="agent-listings"></div>
         </div>
       </div>
@@ -908,10 +908,9 @@ footer{background:var(--dark);padding:56px 5% 28px}
         </div>
         <div class="dash-card">
           <h3>Performance</h3>
-          <div style="display:flex;flex-direction:column;gap:14px">
-            <div><div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:5px"><span>Profile completion</span><span style="font-weight:700">88%</span></div><div style="height:7px;background:var(--gray-light);border-radius:4px"><div style="height:100%;width:88%;background:var(--green);border-radius:4px"></div></div></div>
-            <div><div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:5px"><span>Response rate</span><span style="font-weight:700">94%</span></div><div style="height:7px;background:var(--gray-light);border-radius:4px"><div style="height:100%;width:94%;background:var(--gold);border-radius:4px"></div></div></div>
-            <div><div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:5px"><span>Listing quality score</span><span style="font-weight:700">76%</span></div><div style="height:7px;background:var(--gray-light);border-radius:4px"><div style="height:100%;width:76%;background:#2980b9;border-radius:4px"></div></div></div>
+          <div style="text-align:center;padding:28px 16px;color:var(--gray-mid)">
+            <div style="font-size:2rem;margin-bottom:10px">📊</div>
+            <div style="font-size:0.85rem;font-weight:300">Performance data will appear here once you have active listings and enquiries.</div>
           </div>
         </div>
       </div>
@@ -1076,6 +1075,36 @@ footer{background:var(--dark);padding:56px 5% 28px}
 <div class="toast" id="toast"></div>
 
 <script>
+// ── WAIT FOR SUPABASE CDN TO BE READY ──
+// The CDN exposes window.supabase – we must not call createClient until the
+// page has fully loaded, otherwise we get "already declared" race errors.
+let sbClient = null;
+
+window.addEventListener('load', function() {
+  sbClient = window.supabase.createClient(
+    'https://qrheqgilbhxdzppgelzh.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFyaGVxZ2lsYmh4ZHpwcGdlbHpoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgzMzkxNDEsImV4cCI6MjA5MzkxNTE0MX0.Vaoo_0VJepdC8xD34NXh_WMsh3XF49FdaHUhXWk06r0'
+  );
+
+  // Wire nav button AFTER load so openAuth() exists
+  document.getElementById('nav-auth-btn').addEventListener('click', openAuth);
+
+  // Check existing session
+  sbClient.auth.getSession().then(({ data: { session } }) => {
+    if (session) setLoggedIn(session.user);
+    else setLoggedOut();
+  });
+
+  // Listen for auth changes (login / logout)
+  sbClient.auth.onAuthStateChange((event, session) => {
+    if (session) setLoggedIn(session.user);
+    else setLoggedOut();
+  });
+
+  // Render featured listings on homepage
+  renderFeatured();
+});
+
 // ── DATA ──
 const PROPS = [
   {id:0,type:'rent',title:'3-Bedroom Flat',loc:'Lekki Phase 1',fullLoc:'Admiralty Way, Lekki Phase 1',price:'₦800,000/yr',priceNum:800000,beds:3,baths:2,sqm:140,emoji:'🏢',desc:'A beautiful and spacious 3-bedroom flat in the heart of Lekki Phase 1. Fully serviced with modern finishes, ample natural light, and dedicated parking. Minutes from major landmarks including the Lekki-Epe Expressway, Genesis Cinema, and top restaurants. Perfect for professionals and young families.'},
@@ -1099,6 +1128,12 @@ let activeTab='rent', selectedRole='tenant', agentPhotoDataUrl=null;
 
 // ── PAGE ROUTING ──
 function showPage(page){
+  // Gate agent dashboard behind login
+  if(page==='agent' && !currentUser){
+    openAuth();
+    showToast('Please log in to access your dashboard','error');
+    return;
+  }
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById(page+'-page').classList.add('active');
   window.scrollTo(0,0);
@@ -1207,46 +1242,52 @@ function renderFeatured(){
 }
 
 function renderDashboard(){
-  const listEl=document.getElementById('agent-listings');
-  const enqEl=document.getElementById('agent-enquiries');
-  if(listEl){
-    listEl.innerHTML=PROPS.slice(0,5).map(p=>{
-      const photos=uploadedPhotos[p.id]||[];
-      const imgContent=photos.length>0?`<img src="${photos[0]}" alt="${p.title}">`:`<span>${p.emoji}</span>`;
-      return `
-      <div class="listing-row">
-        <div class="lr-img">${imgContent}</div>
-        <div class="lr-info">
-          <div class="lr-name">${p.title}</div>
-          <div class="lr-loc">${p.loc}</div>
-          <span class="lr-status ${p.id%3===2?'status-pending':'status-active'}">${p.id%3===2?'Pending':'Active'}</span>
-        </div>
-        <div style="text-align:right">
-          <div class="lr-price">${p.price}</div>
-          <div class="lr-actions" style="margin-top:5px">
-            <button class="lr-btn lr-btn-edit" onclick="event.stopPropagation()">Edit</button>
-            <button class="lr-btn lr-btn-del" onclick="event.stopPropagation()">Delete</button>
-          </div>
-        </div>
-      </div>`;
-    }).join('');
+  if(!currentUser) return;
+  const name=(currentUser.user_metadata&&currentUser.user_metadata.first_name)||currentUser.email.split('@')[0];
+  const wel=document.getElementById('agent-welcome');
+  if(wel) wel.textContent='Welcome back, '+name+' 👋';
+
+  // Stats – zero for a new real account
+  const statCards=document.querySelectorAll('.stat-n');
+  const statTrends=document.querySelectorAll('.stat-trend');
+  if(statCards.length>=4){
+    statCards[0].textContent='0';
+    statCards[1].textContent='0';
+    statCards[2].textContent='0';
+    statCards[3].textContent='0';
   }
+  if(statTrends.length>=4){
+    statTrends[0].textContent='No listings yet';
+    statTrends[0].className='stat-trend';
+    statTrends[1].textContent='—';
+    statTrends[1].className='stat-trend';
+    statTrends[2].textContent='No enquiries yet';
+    statTrends[2].className='stat-trend';
+    statTrends[3].textContent='—';
+    statTrends[3].className='stat-trend';
+  }
+
+  // Listings – empty state
+  const listEl=document.getElementById('agent-listings');
+  if(listEl){
+    listEl.innerHTML=`
+    <div style="text-align:center;padding:40px 20px;color:var(--gray-mid)">
+      <div style="font-size:3rem;margin-bottom:14px">🏠</div>
+      <div style="font-weight:600;font-size:0.95rem;color:var(--dark);margin-bottom:6px">No listings yet</div>
+      <div style="font-size:0.85rem;font-weight:300;margin-bottom:20px">Click "Add New Listing" to publish your first property.</div>
+      <button onclick="openAddListing()" style="padding:10px 22px;background:var(--green);color:#fff;border:none;border-radius:9px;font-family:var(--font-body);font-weight:700;font-size:0.85rem;cursor:pointer">+ Add First Listing</button>
+    </div>`;
+  }
+
+  // Enquiries – empty state
+  const enqEl=document.getElementById('agent-enquiries');
   if(enqEl){
-    const enquiries=[
-      {name:'Chioma Eze',time:'2h ago',prop:'3-Bed Flat, Lekki',msg:'Hi, I\'m interested in this property. Is it still available for immediate move-in?'},
-      {name:'Tunde Bakare',time:'5h ago',prop:'4-Bed House, Ikeja GRA',msg:'Can I arrange a viewing this Saturday? I\'m very interested.'},
-      {name:'Amara Obi',time:'1d ago',prop:'Studio, Victoria Island',msg:'What is included in the ₦25k/night? Is breakfast included?'},
-    ];
-    enqEl.innerHTML=enquiries.map(e=>`
-    <div class="enquiry-item">
-      <div class="eq-top"><span class="eq-name">${e.name}</span><span class="eq-time">${e.time}</span></div>
-      <div class="eq-prop">Re: ${e.prop}</div>
-      <div class="eq-msg">${e.msg}</div>
-      <div class="eq-actions">
-        <button class="eq-btn eq-reply" onclick="showToast('Reply sent to '+${JSON.stringify(e.name)}+'!')">Reply</button>
-        <button class="eq-btn eq-ignore">Archive</button>
-      </div>
-    </div>`).join('');
+    enqEl.innerHTML=`
+    <div style="text-align:center;padding:32px 20px;color:var(--gray-mid)">
+      <div style="font-size:2.5rem;margin-bottom:12px">📩</div>
+      <div style="font-weight:600;font-size:0.9rem;color:var(--dark);margin-bottom:5px">No enquiries yet</div>
+      <div style="font-size:0.82rem;font-weight:300">Enquiries from interested buyers and renters will appear here.</div>
+    </div>`;
   }
 }
 
@@ -1326,42 +1367,41 @@ document.querySelectorAll('.modal-overlay').forEach(overlay=>{
   overlay.addEventListener('click',e=>{if(e.target===overlay) overlay.classList.remove('open')});
 });
 
-// ── SUPABASE ──
-const SUPA_URL='https://qrheqgilbhxdzppgelzh.supabase.co';
-const SUPA_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFyaGVxZ2lsYmh4ZHpwcGdlbHpoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgzMzkxNDEsImV4cCI6MjA5MzkxNTE0MX0.Vaoo_0VJepdC8xD34NXh_WMsh3XF49FdaHUhXWk06r0';
-// Renamed to sbClient to avoid clash with window.supabase from the CDN
-const sbClient=window.supabase.createClient(SUPA_URL,SUPA_KEY);
+// ── AUTH STATE ──
 let currentUser=null;
-
-// Wire nav button here so openAuth is guaranteed defined
-document.getElementById('nav-auth-btn').addEventListener('click',openAuth);
-
-sbClient.auth.getSession().then(({data:{session}})=>{if(session)setLoggedIn(session.user)});
-sbClient.auth.onAuthStateChange((_,session)=>{if(session)setLoggedIn(session.user);else setLoggedOut()});
 
 function setLoggedIn(user){
   currentUser=user;
-  const name=user.user_metadata?.first_name||user.email.split('@')[0];
+  const name=(user.user_metadata&&user.user_metadata.first_name)||user.email.split('@')[0];
+  const role=(user.user_metadata&&user.user_metadata.role)||'tenant';
   const btn=document.getElementById('nav-auth-btn');
   btn.textContent='👤 '+name;
-  btn.onclick=doLogout;
-  if(document.getElementById('agent-welcome')){
-    document.getElementById('agent-welcome').textContent=`Welcome back, ${name} 👋`;
-  }
-  showToast(`Welcome back, ${name}! 👋`);
+  // replace onclick cleanly
+  const newBtn=btn.cloneNode(true);
+  newBtn.addEventListener('click',doLogout);
+  btn.parentNode.replaceChild(newBtn,btn);
+  // update dashboard welcome if visible
+  const wel=document.getElementById('agent-welcome');
+  if(wel) wel.textContent='Welcome back, '+name+' 👋';
+  // store role so dashboard knows
+  currentUser._role=role;
 }
 
 function setLoggedOut(){
   currentUser=null;
   const btn=document.getElementById('nav-auth-btn');
-  btn.textContent='Login / Sign Up';
-  btn.replaceWith(btn.cloneNode(true)); // remove old listeners
-  document.getElementById('nav-auth-btn').addEventListener('click',openAuth);
+  const newBtn=btn.cloneNode(true);
+  newBtn.textContent='Login / Sign Up';
+  newBtn.addEventListener('click',openAuth);
+  btn.parentNode.replaceChild(newBtn,btn);
+  // if on agent page, bounce back to home
+  if(currentPage==='agent') showPage('home');
 }
 
 async function doLogout(){
-  await sbClient.auth.signOut();
+  if(sbClient) await sbClient.auth.signOut();
   showToast('Logged out. See you soon! 👋');
+  showPage('home');
 }
 
 // ── AUTH ──
@@ -1380,37 +1420,48 @@ function selectRole(role){
 }
 
 async function doLogin(){
+  if(!sbClient){showToast('Still loading, please try again','error');return}
   const email=document.getElementById('login-email').value.trim();
   const password=document.getElementById('login-password').value;
   if(!email||!password){showToast('⚠️ Please enter your email and password','error');return}
   const btn=document.getElementById('login-btn');
   btn.textContent='Logging in…';btn.disabled=true;
-  const {error}=await sbClient.auth.signInWithPassword({email,password});
+  const {data,error}=await sbClient.auth.signInWithPassword({email,password});
   btn.textContent='Login to EasyHomes →';btn.disabled=false;
   if(error){showToast('❌ '+error.message,'error');return}
   closeModal('auth-modal');
+  const name=(data.user.user_metadata&&data.user.user_metadata.first_name)||email.split('@')[0];
+  showToast('Welcome back, '+name+'! 👋');
 }
 
 async function doSignup(){
+  if(!sbClient){showToast('Still loading, please try again','error');return}
   const firstName=document.getElementById('signup-firstname').value.trim();
   const email=document.getElementById('signup-email').value.trim();
   const phone=document.getElementById('signup-phone').value.trim();
   const password=document.getElementById('signup-password').value;
   const lastName=document.getElementById('signup-lastname').value.trim();
-  if(!email||!password||!firstName){showToast('⚠️ Please fill all required fields','error');return}
-  if(password.length<6){showToast('⚠️ Password must be at least 6 characters','error');return}
+  if(!firstName){showToast('⚠️ Please enter your first name','error');return}
+  if(!email){showToast('⚠️ Please enter your email address','error');return}
+  if(!password||password.length<6){showToast('⚠️ Password must be at least 6 characters','error');return}
   const btn=document.getElementById('signup-btn');
   btn.textContent='Creating account…';btn.disabled=true;
   const meta={first_name:firstName,last_name:lastName,phone,role:selectedRole};
   if(agentPhotoDataUrl) meta.avatar_url=agentPhotoDataUrl;
-  const {error}=await sbClient.auth.signUp({email,password,options:{data:meta}});
+  const {data,error}=await sbClient.auth.signUp({email,password,options:{data:meta}});
   btn.textContent='Create Account →';btn.disabled=false;
   if(error){showToast('❌ '+error.message,'error');return}
   closeModal('auth-modal');
-  showToast('🎉 Account created! Check your email to confirm.');
+  // If email confirm is OFF, user is logged in immediately
+  if(data.session){
+    showToast('🎉 Account created! Welcome to EasyHomes, '+firstName+'!');
+  } else {
+    showToast('🎉 Account created! You can now log in.');
+  }
 }
 
 async function doPasswordReset(){
+  if(!sbClient){showToast('Still loading, please try again','error');return}
   const email=document.getElementById('login-email').value.trim();
   if(!email){showToast('⚠️ Enter your email above first','error');return}
   const {error}=await sbClient.auth.resetPasswordForEmail(email,{redirectTo:'https://easywise.github.io/EasyHomes/'});
@@ -1454,7 +1505,7 @@ function closeMobileMenu(){
 }
 
 // ── INIT ──
-renderFeatured();
+// (initialisation now runs inside window.addEventListener('load') above)
 </script>
 </body>
 </html>
