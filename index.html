@@ -1410,7 +1410,11 @@ async function renderDashboard(){
     // Render listing rows
     if(listEl) listEl.innerHTML=listings.map(l=>`
       <div class="listing-row">
-        <div class="lr-img">🏠</div>
+        <div class="lr-img">
+          ${l.photo_urls&&l.photo_urls.length>0
+            ?`<img src="${l.photo_urls[0]}" alt="${l.property_title}" style="width:100%;height:100%;object-fit:cover;border-radius:8px">`
+            :'🏠'}
+        </div>
         <div class="lr-info">
           <div class="lr-name">${l.property_title||'Untitled'}</div>
           <div class="lr-loc">${l.neighbourhood||''} · ${l.bedrooms||'?'} bed · ₦${Number(l.price||0).toLocaleString()}</div>
@@ -1639,6 +1643,31 @@ function setTab(el,type){
   el.classList.add('active');activeTab=type;
 }
 
+// ── UPLOAD PHOTOS TO SUPABASE STORAGE ──
+async function uploadPhotosToStorage(listingId){
+  const urls=[];
+  for(let i=0;i<pendingPhotos.length;i++){
+    const dataUrl=pendingPhotos[i];
+    // Convert base64 dataURL to a Blob
+    const res=await fetch(dataUrl);
+    const blob=await res.blob();
+    const ext=blob.type.split('/')[1]||'jpg';
+    const path=`${currentUser.id}/${listingId}/photo_${i+1}.${ext}`;
+    const {data,error}=await sbClient.storage
+      .from('property-photos')
+      .upload(path,blob,{contentType:blob.type,upsert:true});
+    if(error){
+      console.warn('Photo upload failed:',error.message);
+      continue;
+    }
+    const {data:{publicUrl}}=sbClient.storage
+      .from('property-photos')
+      .getPublicUrl(path);
+    urls.push(publicUrl);
+  }
+  return urls;
+}
+
 // ── SUBMIT LISTING ──
 async function submitListing(){
   if(!sbClient){showToast('Still loading, please try again','error');return}
@@ -1655,6 +1684,21 @@ async function submitListing(){
 
   const amenities=Array.from(document.querySelectorAll('.l-amenity:checked')).map(el=>el.value);
 
+  const btn=document.getElementById('publish-btn');
+  const msg=document.getElementById('listing-msg');
+  btn.textContent='Publishing…';btn.disabled=true;
+  msg.textContent='';msg.style.color='';
+
+  // Generate a temp listing ID for the storage path
+  const tempId=crypto.randomUUID();
+
+  // Upload photos first if any
+  let photoUrls=[];
+  if(pendingPhotos.length>0){
+    btn.textContent='Uploading photos…';
+    photoUrls=await uploadPhotosToStorage(tempId);
+  }
+
   const listing={
     agent_id: currentUser.id,
     property_title: title,
@@ -1668,15 +1712,13 @@ async function submitListing(){
     address: address,
     description: document.getElementById('l-desc').value.trim(),
     amenities: amenities,
+    photo_urls: photoUrls,
     agent_name: (currentUser.user_metadata?.first_name||'')+' '+(currentUser.user_metadata?.last_name||''),
     agent_email: currentUser.email,
     agent_phone: currentUser.user_metadata?.phone||''
   };
 
-  const btn=document.getElementById('publish-btn');
-  const msg=document.getElementById('listing-msg');
-  btn.textContent='Publishing…';btn.disabled=true;
-  msg.textContent='';msg.style.color='';
+  btn.textContent='Saving listing…';
 
   const {error}=await sbClient.from('listings').insert([listing]);
 
