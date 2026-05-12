@@ -925,11 +925,11 @@ footer{background:var(--dark);padding:56px 5% 28px}
         </div>
       </div>
       <div class="contact-form">
-        <input class="cf-input" placeholder="Your full name" type="text">
-        <input class="cf-input" placeholder="Phone number (e.g. 0812…)" type="tel">
-        <input class="cf-input" placeholder="Email address" type="email">
-        <textarea class="cf-input" rows="3" placeholder="I'm interested in this property…"></textarea>
-        <button class="cf-btn" onclick="submitEnquiry()">Send Enquiry</button>
+        <input class="cf-input" id="eq-name" placeholder="Your full name" type="text">
+        <input class="cf-input" id="eq-phone" placeholder="Phone number (e.g. 0812…)" type="tel">
+        <input class="cf-input" id="eq-email" placeholder="Email address" type="email">
+        <textarea class="cf-input" id="eq-msg" rows="3" placeholder="I'm interested in this property…"></textarea>
+        <button class="cf-btn" id="eq-btn" onclick="submitEnquiry()">Send Enquiry</button>
         <a class="cf-btn-outline" id="call-btn" href="tel:+2348000000000" style="display:flex;align-items:center;justify-content:center;gap:7px;padding:11px;text-decoration:none;border-radius:10px;border:1.5px solid var(--green);color:var(--green);font-family:var(--font-body);font-weight:600;font-size:0.87rem;transition:all .2s" onmouseover="this.style.background='var(--green-pale)'" onmouseout="this.style.background='transparent'">📞 Call Agent Directly</a>
         <a class="cf-btn-outline" id="wa-btn" href="https://wa.me/2348000000000?text=Hi%2C%20I%20saw%20your%20listing%20on%20EasyHomes%20and%20I%27m%20interested." target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:7px;padding:11px;text-decoration:none;border-radius:10px;border:1.5px solid #25D366;color:#25D366;font-family:var(--font-body);font-weight:600;font-size:0.87rem;transition:all .2s" onmouseover="this.style.background='#f0fdf4'" onmouseout="this.style.background='transparent'">💬 WhatsApp Agent</a>
       </div>
@@ -991,43 +991,43 @@ footer{background:var(--dark);padding:56px 5% 28px}
     <div class="form-grid">
       <div class="form-group full">
         <label class="form-label">Property Title</label>
-        <input class="form-input" placeholder="e.g. 3-Bedroom Flat, Lekki Phase 1">
+        <input class="form-input" id="l-title" placeholder="e.g. 3-Bedroom Flat, Lekki Phase 1">
       </div>
       <div class="form-group">
         <label class="form-label">Listing Type</label>
-        <select class="form-select"><option>For Rent</option><option>For Sale</option><option>Short Stay</option></select>
+        <select class="form-select" id="l-type"><option>For Rent</option><option>For Sale</option><option>Short Stay</option></select>
       </div>
       <div class="form-group">
         <label class="form-label">Property Type</label>
-        <select class="form-select"><option>Apartment / Flat</option><option>Duplex</option><option>Terraced House</option><option>Detached House</option><option>Bungalow</option><option>Land</option></select>
+        <select class="form-select" id="l-proptype"><option>Apartment / Flat</option><option>Duplex</option><option>Terraced House</option><option>Detached House</option><option>Bungalow</option><option>Land</option></select>
       </div>
       <div class="form-group">
         <label class="form-label">Price (₦)</label>
-        <input class="form-input" type="number" placeholder="e.g. 800000">
+        <input class="form-input" id="l-price" type="number" placeholder="e.g. 800000">
       </div>
       <div class="form-group">
         <label class="form-label">Price Frequency</label>
-        <select class="form-select"><option>Per Year</option><option>Per Month</option><option>Per Night</option><option>Outright</option></select>
+        <select class="form-select" id="l-freq"><option>Per Year</option><option>Per Month</option><option>Per Night</option><option>Outright</option></select>
       </div>
       <div class="form-group">
         <label class="form-label">Bedrooms</label>
-        <select class="form-select"><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select>
+        <select class="form-select" id="l-beds"><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select>
       </div>
       <div class="form-group">
         <label class="form-label">Bathrooms</label>
-        <select class="form-select"><option>1</option><option>2</option><option>3</option><option>4+</option></select>
+        <select class="form-select" id="l-baths"><option>1</option><option>2</option><option>3</option><option>4+</option></select>
       </div>
       <div class="form-group">
-        <label class="form-label">Neighbourhood</label>
-        <select class="form-select"><option value="">Select LGA / Area</option><option>Agege</option><option>Ajeromi-Ifelodun</option><option>Alimosho</option><option>Amuwo-Odofin</option><option>Apapa</option><option>Badagry</option><option>Epe</option><option>Eti-Osa (Lekki / VI / Ikoyi)</option><option>Ibeju-Lekki</option><option>Ifako-Ijaiye</option><option>Ikeja</option><option>Ikorodu</option><option>Kosofe</option><option>Lagos Island</option><option>Lagos Mainland</option><option>Mushin</option><option>Ojo</option><option>Oshodi-Isolo</option><option>Shomolu</option><option>Surulere</option></select>
+        <label class="form-label">Neighbourhood / LGA</label>
+        <select class="form-select" id="l-hood"><option value="">Select LGA / Area</option><option>Agege</option><option>Ajeromi-Ifelodun</option><option>Alimosho</option><option>Amuwo-Odofin</option><option>Apapa</option><option>Badagry</option><option>Epe</option><option>Eti-Osa (Lekki / VI / Ikoyi)</option><option>Ibeju-Lekki</option><option>Ifako-Ijaiye</option><option>Ikeja</option><option>Ikorodu</option><option>Kosofe</option><option>Lagos Island</option><option>Lagos Mainland</option><option>Mushin</option><option>Ojo</option><option>Oshodi-Isolo</option><option>Shomolu</option><option>Surulere</option></select>
       </div>
       <div class="form-group">
         <label class="form-label">Full Address</label>
-        <input class="form-input" placeholder="Street, Estate, Area">
+        <input class="form-input" id="l-address" placeholder="Street, Estate, Area">
       </div>
       <div class="form-group full">
         <label class="form-label">Description</label>
-        <textarea class="form-textarea" placeholder="Describe the property, its features, and what makes it special…"></textarea>
+        <textarea class="form-textarea" id="l-desc" placeholder="Describe the property, its features, and what makes it special…"></textarea>
       </div>
 
       <!-- ── PHOTO UPLOAD ── -->
@@ -1044,18 +1044,19 @@ footer{background:var(--dark);padding:56px 5% 28px}
       <div class="form-group full">
         <label class="form-label">Amenities</label>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:4px">
-          <label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;cursor:pointer"><input type="checkbox" style="accent-color:var(--green)"> 24/7 Electricity</label>
-          <label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;cursor:pointer"><input type="checkbox" style="accent-color:var(--green)"> Borehole Water</label>
-          <label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;cursor:pointer"><input type="checkbox" style="accent-color:var(--green)"> Parking Space</label>
-          <label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;cursor:pointer"><input type="checkbox" style="accent-color:var(--green)"> Security</label>
-          <label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;cursor:pointer"><input type="checkbox" style="accent-color:var(--green)"> Swimming Pool</label>
-          <label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;cursor:pointer"><input type="checkbox" style="accent-color:var(--green)"> Air Conditioning</label>
-          <label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;cursor:pointer"><input type="checkbox" style="accent-color:var(--green)"> Fitted Kitchen</label>
-          <label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;cursor:pointer"><input type="checkbox" style="accent-color:var(--green)"> Gym</label>
+          <label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;cursor:pointer"><input type="checkbox" class="l-amenity" value="24/7 Electricity" style="accent-color:var(--green)"> 24/7 Electricity</label>
+          <label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;cursor:pointer"><input type="checkbox" class="l-amenity" value="Borehole Water" style="accent-color:var(--green)"> Borehole Water</label>
+          <label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;cursor:pointer"><input type="checkbox" class="l-amenity" value="Parking Space" style="accent-color:var(--green)"> Parking Space</label>
+          <label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;cursor:pointer"><input type="checkbox" class="l-amenity" value="Security" style="accent-color:var(--green)"> Security</label>
+          <label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;cursor:pointer"><input type="checkbox" class="l-amenity" value="Swimming Pool" style="accent-color:var(--green)"> Swimming Pool</label>
+          <label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;cursor:pointer"><input type="checkbox" class="l-amenity" value="Air Conditioning" style="accent-color:var(--green)"> Air Conditioning</label>
+          <label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;cursor:pointer"><input type="checkbox" class="l-amenity" value="Fitted Kitchen" style="accent-color:var(--green)"> Fitted Kitchen</label>
+          <label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;cursor:pointer"><input type="checkbox" class="l-amenity" value="Gym" style="accent-color:var(--green)"> Gym</label>
         </div>
       </div>
     </div>
-    <button class="form-submit" onclick="submitListing()">🏠 Publish Listing</button>
+    <button class="form-submit" id="publish-btn" onclick="submitListing()">🏠 Publish Listing</button>
+    <div id="listing-msg" style="text-align:center;font-size:0.83rem;margin-top:10px;min-height:18px"></div>
   </div>
 </div>
 
@@ -1356,53 +1357,101 @@ function renderFeatured(){
   if(grid) grid.innerHTML=PROPS.slice(0,6).map(propCard).join('');
 }
 
-function renderDashboard(){
+async function renderDashboard(){
   if(!currentUser) return;
   const name=(currentUser.user_metadata&&currentUser.user_metadata.first_name)||currentUser.email.split('@')[0];
   const wel=document.getElementById('agent-welcome');
   if(wel) wel.textContent='Welcome back, '+name+' 👋';
 
-  // Stats – zero for a new real account
+  // Load real listings from Supabase
+  const {data:listings,error}=await sbClient
+    .from('listings')
+    .select('*')
+    .eq('agent_id',currentUser.id)
+    .order('created_at',{ascending:false});
+
+  const listEl=document.getElementById('agent-listings');
   const statCards=document.querySelectorAll('.stat-n');
   const statTrends=document.querySelectorAll('.stat-trend');
-  if(statCards.length>=4){
-    statCards[0].textContent='0';
-    statCards[1].textContent='0';
-    statCards[2].textContent='0';
-    statCards[3].textContent='0';
-  }
-  if(statTrends.length>=4){
-    statTrends[0].textContent='No listings yet';
-    statTrends[0].className='stat-trend';
-    statTrends[1].textContent='—';
-    statTrends[1].className='stat-trend';
-    statTrends[2].textContent='No enquiries yet';
-    statTrends[2].className='stat-trend';
-    statTrends[3].textContent='—';
-    statTrends[3].className='stat-trend';
+
+  if(error||!listings||listings.length===0){
+    // Zero state
+    if(statCards.length>=4){
+      statCards[0].textContent='0';statCards[1].textContent='0';
+      statCards[2].textContent='0';statCards[3].textContent='0';
+    }
+    if(statTrends.length>=4){
+      statTrends[0].textContent='No listings yet';statTrends[0].className='stat-trend';
+      statTrends[1].textContent='—';statTrends[1].className='stat-trend';
+      statTrends[2].textContent='No enquiries yet';statTrends[2].className='stat-trend';
+      statTrends[3].textContent='—';statTrends[3].className='stat-trend';
+    }
+    if(listEl) listEl.innerHTML=`
+      <div style="text-align:center;padding:40px 20px;color:var(--gray-mid)">
+        <div style="font-size:3rem;margin-bottom:14px">🏠</div>
+        <div style="font-weight:600;font-size:0.95rem;color:var(--dark);margin-bottom:6px">No listings yet</div>
+        <div style="font-size:0.85rem;font-weight:300;margin-bottom:20px">Click "Add New Listing" to publish your first property.</div>
+        <button onclick="openAddListing()" style="padding:10px 22px;background:var(--green);color:#fff;border:none;border-radius:9px;font-family:var(--font-body);font-weight:700;font-size:0.85rem;cursor:pointer">+ Add First Listing</button>
+      </div>`;
+  } else {
+    // Update stats
+    if(statCards.length>=4){
+      statCards[0].textContent=listings.length;
+      statCards[1].textContent='—';
+      statCards[2].textContent='—';
+      statCards[3].textContent='0';
+    }
+    if(statTrends.length>=4){
+      statTrends[0].textContent='Active';statTrends[0].className='stat-trend trend-up';
+      statTrends[1].textContent='—';statTrends[1].className='stat-trend';
+      statTrends[2].textContent='—';statTrends[2].className='stat-trend';
+      statTrends[3].textContent='—';statTrends[3].className='stat-trend';
+    }
+    // Render listing rows
+    if(listEl) listEl.innerHTML=listings.map(l=>`
+      <div class="listing-row">
+        <div class="lr-img">🏠</div>
+        <div class="lr-info">
+          <div class="lr-name">${l.property_title||'Untitled'}</div>
+          <div class="lr-loc">${l.neighbourhood||''} · ${l.bedrooms||'?'} bed · ₦${Number(l.price||0).toLocaleString()}</div>
+          <span class="lr-status status-active">${l.listing_type||'For Rent'}</span>
+        </div>
+        <div class="lr-price">₦${Number(l.price||0).toLocaleString()}</div>
+      </div>`).join('');
   }
 
-  // Listings – empty state
-  const listEl=document.getElementById('agent-listings');
-  if(listEl){
-    listEl.innerHTML=`
-    <div style="text-align:center;padding:40px 20px;color:var(--gray-mid)">
-      <div style="font-size:3rem;margin-bottom:14px">🏠</div>
-      <div style="font-weight:600;font-size:0.95rem;color:var(--dark);margin-bottom:6px">No listings yet</div>
-      <div style="font-size:0.85rem;font-weight:300;margin-bottom:20px">Click "Add New Listing" to publish your first property.</div>
-      <button onclick="openAddListing()" style="padding:10px 22px;background:var(--green);color:#fff;border:none;border-radius:9px;font-family:var(--font-body);font-weight:700;font-size:0.85rem;cursor:pointer">+ Add First Listing</button>
-    </div>`;
-  }
+  // Load enquiries count
+  const {data:enqs}=await sbClient
+    .from('enquiries')
+    .select('id,property_title,sender_name,sender_phone,message,created_at')
+    .order('created_at',{ascending:false})
+    .limit(5);
 
-  // Enquiries – empty state
   const enqEl=document.getElementById('agent-enquiries');
   if(enqEl){
-    enqEl.innerHTML=`
-    <div style="text-align:center;padding:32px 20px;color:var(--gray-mid)">
-      <div style="font-size:2.5rem;margin-bottom:12px">📩</div>
-      <div style="font-weight:600;font-size:0.9rem;color:var(--dark);margin-bottom:5px">No enquiries yet</div>
-      <div style="font-size:0.82rem;font-weight:300">Enquiries from interested buyers and renters will appear here.</div>
-    </div>`;
+    if(!enqs||enqs.length===0){
+      enqEl.innerHTML=`
+        <div style="text-align:center;padding:32px 20px;color:var(--gray-mid)">
+          <div style="font-size:2.5rem;margin-bottom:12px">📩</div>
+          <div style="font-weight:600;font-size:0.9rem;color:var(--dark);margin-bottom:5px">No enquiries yet</div>
+          <div style="font-size:0.82rem;font-weight:300">Enquiries from interested buyers and renters will appear here.</div>
+        </div>`;
+    } else {
+      if(statCards[2]) statCards[2].textContent=enqs.length;
+      enqEl.innerHTML=enqs.map(e=>`
+        <div class="enquiry-item">
+          <div class="eq-top">
+            <span class="eq-name">${e.sender_name||'Unknown'}</span>
+            <span class="eq-time">${new Date(e.created_at).toLocaleDateString('en-NG',{day:'numeric',month:'short'})}</span>
+          </div>
+          <div class="eq-prop">Re: ${e.property_title||'—'}</div>
+          <div class="eq-msg">${e.message||''}</div>
+          <div class="eq-actions">
+            ${e.sender_phone?`<a href="tel:${e.sender_phone}" class="eq-btn eq-reply" style="text-decoration:none">📞 Call</a>`:''}
+            <span class="eq-btn eq-ignore">Dismiss</span>
+          </div>
+        </div>`).join('');
+    }
   }
 }
 
@@ -1590,16 +1639,118 @@ function setTab(el,type){
   el.classList.add('active');activeTab=type;
 }
 
-// ── SUBMIT ──
-function submitListing(){
-  // Attach pending photos to a new listing id (demo: store on last prop)
-  if(pendingPhotos.length>0) uploadedPhotos[PROPS.length-1]=pendingPhotos.slice();
+// ── SUBMIT LISTING ──
+async function submitListing(){
+  if(!sbClient){showToast('Still loading, please try again','error');return}
+  if(!currentUser){showToast('⚠️ Please log in to publish a listing','error');openAuth();return}
+
+  const title=document.getElementById('l-title').value.trim();
+  const price=document.getElementById('l-price').value;
+  const hood=document.getElementById('l-hood').value;
+  const address=document.getElementById('l-address').value.trim();
+
+  if(!title){showToast('⚠️ Please enter a property title','error');return}
+  if(!price){showToast('⚠️ Please enter a price','error');return}
+  if(!hood){showToast('⚠️ Please select a neighbourhood','error');return}
+
+  const amenities=Array.from(document.querySelectorAll('.l-amenity:checked')).map(el=>el.value);
+
+  const listing={
+    agent_id: currentUser.id,
+    property_title: title,
+    listing_type: document.getElementById('l-type').value,
+    property_type: document.getElementById('l-proptype').value,
+    price: Number(price),
+    price_frequency: document.getElementById('l-freq').value,
+    bedrooms: document.getElementById('l-beds').value,
+    bathrooms: document.getElementById('l-baths').value,
+    neighbourhood: hood,
+    address: address,
+    description: document.getElementById('l-desc').value.trim(),
+    amenities: amenities,
+    agent_name: (currentUser.user_metadata?.first_name||'')+' '+(currentUser.user_metadata?.last_name||''),
+    agent_email: currentUser.email,
+    agent_phone: currentUser.user_metadata?.phone||''
+  };
+
+  const btn=document.getElementById('publish-btn');
+  const msg=document.getElementById('listing-msg');
+  btn.textContent='Publishing…';btn.disabled=true;
+  msg.textContent='';msg.style.color='';
+
+  const {error}=await sbClient.from('listings').insert([listing]);
+
+  btn.textContent='🏠 Publish Listing';btn.disabled=false;
+
+  if(error){
+    msg.textContent='❌ Error: '+error.message;
+    msg.style.color='var(--red)';
+    showToast('❌ Failed to publish listing','error');
+    return;
+  }
+
+  // Reset form
+  document.getElementById('l-title').value='';
+  document.getElementById('l-price').value='';
+  document.getElementById('l-address').value='';
+  document.getElementById('l-desc').value='';
+  document.querySelectorAll('.l-amenity').forEach(el=>el.checked=false);
   pendingPhotos=[];
+  renderPhotoPreview();
+
   closeModal('add-listing-modal');
-  showToast('🏠 Listing submitted for review! ✅');
+  showToast('🏠 Listing published successfully! ✅');
+
+  // Refresh dashboard if on agent page
+  if(currentPage==='agent') renderDashboard();
 }
 
-function submitEnquiry(){showToast('Enquiry sent! The agent will contact you soon 📞')}
+// ── SUBMIT ENQUIRY ──
+async function submitEnquiry(){
+  if(!sbClient){showToast('Still loading, please try again','error');return}
+
+  const name=document.getElementById('eq-name').value.trim();
+  const phone=document.getElementById('eq-phone').value.trim();
+  const email=document.getElementById('eq-email').value.trim();
+  const message=document.getElementById('eq-msg').value.trim();
+
+  if(!name){showToast('⚠️ Please enter your name','error');return}
+  if(!phone&&!email){showToast('⚠️ Please enter a phone number or email','error');return}
+  if(!message){showToast('⚠️ Please enter a message','error');return}
+
+  const prop=PROPS[currentDetail]||{};
+
+  const enquiry={
+    property_id: null,
+    agent_id: null,
+    property_title: prop.title||'',
+    property_location: prop.loc||'',
+    sender_name: name,
+    sender_phone: phone,
+    sender_email: email,
+    message: message
+  };
+
+  const btn=document.getElementById('eq-btn');
+  btn.textContent='Sending…';btn.disabled=true;
+
+  const {error}=await sbClient.from('enquiries').insert([enquiry]);
+
+  btn.textContent='Send Enquiry';btn.disabled=false;
+
+  if(error){
+    showToast('❌ Failed to send enquiry: '+error.message,'error');
+    return;
+  }
+
+  // Clear fields
+  document.getElementById('eq-name').value='';
+  document.getElementById('eq-phone').value='';
+  document.getElementById('eq-email').value='';
+  document.getElementById('eq-msg').value='';
+
+  showToast('✅ Enquiry sent! The agent will contact you soon 📞');
+}
 
 // ── TOAST ──
 function showToast(msg,type){
