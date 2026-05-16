@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EasyHomes — Find Your Home in Lagos</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Leaflet Maps -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 :root {
@@ -464,6 +467,62 @@ nav{
 }
 .form-input-auth:focus{border-color:var(--green)}
 
+/* ──────────── LEAFLET MAP ──────────── */
+.map-explore-section{padding:80px 5%;background:#fff}
+#home-map{
+  width:100%;height:480px;border-radius:var(--radius-lg);
+  overflow:hidden;box-shadow:var(--shadow-lg);
+  border:1px solid var(--gray-light);
+  z-index:1;
+}
+#detail-map{
+  width:100%;height:280px;border-radius:var(--radius);
+  overflow:hidden;border:1px solid var(--gray-light);
+  z-index:1;
+}
+.leaflet-popup-content-wrapper{
+  border-radius:12px!important;
+  box-shadow:0 8px 32px rgba(0,0,0,0.18)!important;
+  font-family:var(--font-body)!important;
+  padding:0!important;
+  overflow:hidden;
+}
+.leaflet-popup-content{margin:0!important;width:220px!important}
+.map-popup{padding:14px}
+.map-popup-price{font-weight:800;font-size:1rem;color:var(--green);margin-bottom:3px}
+.map-popup-title{font-weight:600;font-size:0.85rem;color:var(--dark);margin-bottom:2px}
+.map-popup-loc{font-size:0.76rem;color:var(--gray-mid);margin-bottom:10px}
+.map-popup-meta{display:flex;gap:8px;font-size:0.75rem;color:var(--gray);margin-bottom:10px}
+.map-popup-btn{
+  display:block;width:100%;padding:8px;background:var(--green);
+  color:#fff;border:none;border-radius:8px;font-family:var(--font-body);
+  font-weight:700;font-size:0.8rem;cursor:pointer;text-align:center;
+  transition:background .2s;
+}
+.map-popup-btn:hover{background:var(--green-light)}
+.map-pin{
+  background:var(--green);color:#fff;
+  border-radius:20px;padding:4px 10px;
+  font-family:var(--font-body);font-size:0.72rem;font-weight:700;
+  box-shadow:0 3px 10px rgba(13,92,48,0.4);
+  white-space:nowrap;border:2px solid #fff;
+  cursor:pointer;transition:transform .15s;
+}
+.map-pin:hover{transform:scale(1.08)}
+.map-pin.buy{background:var(--gold)}
+.map-pin.short{background:#6c3fc5}
+.map-controls{
+  display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap;align-items:center;
+}
+.map-filter-btn{
+  padding:7px 16px;border-radius:20px;border:1.5px solid var(--gray-light);
+  background:#fff;font-family:var(--font-body);font-size:0.82rem;font-weight:600;
+  cursor:pointer;color:var(--gray);transition:all .2s;
+}
+.map-filter-btn.active{background:var(--green);border-color:var(--green);color:#fff}
+.map-filter-btn.buy.active{background:var(--gold);border-color:var(--gold)}
+.map-filter-btn.short.active{background:#6c3fc5;border-color:#6c3fc5}
+
 /* ──────────── NEIGHBOURHOODS ──────────── */
 .map-section{background:var(--dark3);padding:80px 5%}
 .map-section .section-h2{color:#fff}
@@ -697,6 +756,25 @@ footer{background:var(--dark);padding:56px 5% 28px}
 
   <!-- WHY EASYHOMES -->
   <section class="why-section">
+
+  <!-- EXPLORE ON MAP -->
+  <section class="map-explore-section">
+    <div class="section-header">
+      <div class="section-tag">Explore Lagos</div>
+      <h2 class="section-h2">Browse Properties <em>on the Map</em></h2>
+      <p class="section-sub">Click any pin to see property details. Filter by type below.</p>
+    </div>
+    <div class="map-controls" style="margin-top:24px">
+      <button class="map-filter-btn active" onclick="filterMapPins('all',this)">🏘 All</button>
+      <button class="map-filter-btn rent" onclick="filterMapPins('rent',this)">🔑 For Rent</button>
+      <button class="map-filter-btn buy" onclick="filterMapPins('buy',this)">🏠 For Sale</button>
+      <button class="map-filter-btn short" onclick="filterMapPins('short',this)">📅 Short Stay</button>
+      <span style="margin-left:auto;font-size:0.8rem;color:var(--gray-mid)" id="map-count"></span>
+    </div>
+    <div id="home-map"></div>
+  </section>
+
+  <section class="why-section">
     <div class="section-header">
       <div class="section-tag">Why EasyHomes</div>
       <h2 class="section-h2">Property Search <em>Made Simple</em></h2>
@@ -922,12 +1000,7 @@ footer{background:var(--dark);padding:56px 5% 28px}
         <div class="amenity">Tiled Floors</div>
       </div>
       <h3 class="detail-section-title">Location</h3>
-      <div style="border-radius:12px;overflow:hidden;height:220px;margin-top:8px;border:1px solid var(--gray-light)">
-        <iframe id="detail-map" width="100%" height="220" style="border:0;display:block" loading="lazy" allowfullscreen
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://maps.google.com/maps?q=Lekki+Phase+1,Lagos,Nigeria&output=embed&z=14">
-        </iframe>
-      </div>
+      <div id="detail-map" style="margin-top:8px"></div>
     </div>
     <div class="contact-card">
       <div class="agent-info">
@@ -1341,18 +1414,18 @@ window.addEventListener('load', function() {
 
 // ── DATA ──
 const PROPS = [
-  {id:0,type:'rent',title:'3-Bedroom Flat',loc:'Lekki Phase 1',fullLoc:'Admiralty Way, Lekki Phase 1',price:'₦800,000/yr',priceNum:800000,beds:3,baths:2,sqm:140,emoji:'🏢',agentPhone:'2348012345678',desc:'A beautiful and spacious 3-bedroom flat in the heart of Lekki Phase 1. Fully serviced with modern finishes, ample natural light, and dedicated parking. Minutes from major landmarks including the Lekki-Epe Expressway, Genesis Cinema, and top restaurants. Perfect for professionals and young families.'},
-  {id:1,type:'buy',title:'5-Bedroom Duplex',loc:'Banana Island, Ikoyi',fullLoc:'Banana Island Estate, Ikoyi',price:'₦120,000,000',priceNum:120000000,beds:5,baths:5,sqm:450,emoji:'🏰',agentPhone:'2348023456789',desc:'An extraordinary luxury duplex on the prestigious Banana Island. Features an infinity pool, home theatre, smart home systems, and breathtaking ocean views. The pinnacle of Lagos luxury living.'},
-  {id:2,type:'short',title:'Cozy 1-Bed Studio',loc:'Victoria Island',fullLoc:'Adeola Odeku St, Victoria Island',price:'₦25,000/night',priceNum:25000,beds:1,baths:1,sqm:55,emoji:'🏙️',agentPhone:'2348034567890',desc:'A stylish, modern studio apartment perfect for business travellers and short-term visitors. Walking distance to major VI offices, restaurants, and nightlife.'},
-  {id:3,type:'rent',title:'2-Bedroom Flat',loc:'Yaba',fullLoc:'Herbert Macaulay Way, Yaba',price:'₦350,000/yr',priceNum:350000,beds:2,baths:1,sqm:90,emoji:'🏗️',agentPhone:'2348045678901',desc:'Affordable, clean 2-bedroom apartment in the heart of Yaba — Lagos tech hub. Excellent access to UNILAG, market, and transport links.'},
-  {id:4,type:'buy',title:'4-Bed Detached House',loc:'Ikeja GRA',fullLoc:'Obafemi Awolowo Way, Ikeja GRA',price:'₦65,000,000',priceNum:65000000,beds:4,baths:3,sqm:280,emoji:'🏡',agentPhone:'2348056789012',desc:'A well-maintained 4-bedroom detached home in the quiet and secure Ikeja GRA. Spacious compound with room for expansion. Ideal for families.'},
-  {id:5,type:'rent',title:'3-Bedroom Bungalow',loc:'Surulere',fullLoc:'Adeniran Ogunsanya St, Surulere',price:'₦450,000/yr',priceNum:450000,beds:3,baths:2,sqm:120,emoji:'🏘️',agentPhone:'2348067890123',desc:'Charming 3-bedroom bungalow in a quiet Surulere street. Perfect for families. Close to National Stadium, shops, and schools.'},
-  {id:6,type:'buy',title:'Land (650 sqm)',loc:'Ajah',fullLoc:'Abraham Adesanya Estate, Ajah',price:'₦18,000,000',priceNum:18000000,beds:0,baths:0,sqm:650,emoji:'🌿',agentPhone:'2348078901234',desc:'Prime dry land in the fast-developing Abraham Adesanya Estate, Ajah. C of O available. Excellent investment opportunity in Lagos\' fastest growing axis.'},
-  {id:7,type:'short',title:'Luxury 2-Bed Serviced Apt',loc:'Oniru Estate, VI',fullLoc:'Oniru Estate, Victoria Island',price:'₦45,000/night',priceNum:45000,beds:2,baths:2,sqm:110,emoji:'🌴',agentPhone:'2348089012345',desc:'Premium fully-serviced apartment with pool access, gym, and 24/7 concierge. Located in the exclusive Oniru Estate. Perfect for executives and couples.'},
-  {id:8,type:'rent',title:'Self-Contain (Bedsitter)',loc:'Mushin',fullLoc:'Oshodi-Apapa Expressway, Mushin',price:'₦90,000/yr',priceNum:90000,beds:1,baths:1,sqm:30,emoji:'🏠',agentPhone:'2348090123456',desc:'Affordable self-contain unit ideal for students and young professionals. Water, security, and street lighting available.'},
-  {id:9,type:'buy',title:'3-Bed Terraced Duplex',loc:'Lekki Phase 2',fullLoc:'Freedom Way, Lekki Phase 2',price:'₦42,000,000',priceNum:42000000,beds:3,baths:3,sqm:185,emoji:'🏗️',agentPhone:'2348001234567',desc:'Brand new 3-bedroom terraced duplex in a gated estate. Modern architecture with rooftop terrace, estate swimming pool, and 24/7 security.'},
-  {id:10,type:'rent',title:'4-Bedroom Flat',loc:'Ikoyi',fullLoc:'Alexander Road, Ikoyi',price:'₦3,500,000/yr',priceNum:3500000,beds:4,baths:3,sqm:220,emoji:'🏢',agentPhone:'2348011234567',desc:'Spacious and elegant 4-bedroom flat in old Ikoyi. BQ, 2 parking spaces, generator, and water tank. Quiet, tree-lined street.'},
-  {id:11,type:'short',title:'Executive 3-Bed Apartment',loc:'Victoria Island',fullLoc:'Eko Hotels Area, Victoria Island',price:'₦60,000/night',priceNum:60000,beds:3,baths:3,sqm:160,emoji:'🌆',agentPhone:'2348021234567',desc:'World-class serviced apartment steps from Eko Hotel and Eko Atlantic. Panoramic city views, Netflix, and airport transfers available.'},
+  {id:0,type:'rent',title:'3-Bedroom Flat',loc:'Lekki Phase 1',fullLoc:'Admiralty Way, Lekki Phase 1',price:'₦800,000/yr',priceNum:800000,beds:3,baths:2,sqm:140,emoji:'🏢',lat:6.4541,lng:3.4694,agentPhone:'2348012345678',desc:'A beautiful and spacious 3-bedroom flat in the heart of Lekki Phase 1. Fully serviced with modern finishes, ample natural light, and dedicated parking. Minutes from major landmarks including the Lekki-Epe Expressway, Genesis Cinema, and top restaurants. Perfect for professionals and young families.'},
+  {id:1,type:'buy',title:'5-Bedroom Duplex',loc:'Banana Island, Ikoyi',fullLoc:'Banana Island Estate, Ikoyi',price:'₦120,000,000',priceNum:120000000,beds:5,baths:5,sqm:450,emoji:'🏰',lat:6.4480,lng:3.4285,agentPhone:'2348023456789',desc:'An extraordinary luxury duplex on the prestigious Banana Island. Features an infinity pool, home theatre, smart home systems, and breathtaking ocean views. The pinnacle of Lagos luxury living.'},
+  {id:2,type:'short',title:'Cozy 1-Bed Studio',loc:'Victoria Island',fullLoc:'Adeola Odeku St, Victoria Island',price:'₦25,000/night',priceNum:25000,beds:1,baths:1,sqm:55,emoji:'🏙️',lat:6.4281,lng:3.4219,agentPhone:'2348034567890',desc:'A stylish, modern studio apartment perfect for business travellers and short-term visitors. Walking distance to major VI offices, restaurants, and nightlife.'},
+  {id:3,type:'rent',title:'2-Bedroom Flat',loc:'Yaba',fullLoc:'Herbert Macaulay Way, Yaba',price:'₦350,000/yr',priceNum:350000,beds:2,baths:1,sqm:90,emoji:'🏗️',lat:6.5095,lng:3.3711,agentPhone:'2348045678901',desc:'Affordable, clean 2-bedroom apartment in the heart of Yaba — Lagos tech hub. Excellent access to UNILAG, market, and transport links.'},
+  {id:4,type:'buy',title:'4-Bed Detached House',loc:'Ikeja GRA',fullLoc:'Obafemi Awolowo Way, Ikeja GRA',price:'₦65,000,000',priceNum:65000000,beds:4,baths:3,sqm:280,emoji:'🏡',lat:6.5944,lng:3.3403,agentPhone:'2348056789012',desc:'A well-maintained 4-bedroom detached home in the quiet and secure Ikeja GRA. Spacious compound with room for expansion. Ideal for families.'},
+  {id:5,type:'rent',title:'3-Bedroom Bungalow',loc:'Surulere',fullLoc:'Adeniran Ogunsanya St, Surulere',price:'₦450,000/yr',priceNum:450000,beds:3,baths:2,sqm:120,emoji:'🏘️',lat:6.4969,lng:3.3481,agentPhone:'2348067890123',desc:'Charming 3-bedroom bungalow in a quiet Surulere street. Perfect for families. Close to National Stadium, shops, and schools.'},
+  {id:6,type:'buy',title:'Land (650 sqm)',loc:'Ajah',fullLoc:'Abraham Adesanya Estate, Ajah',price:'₦18,000,000',priceNum:18000000,beds:0,baths:0,sqm:650,emoji:'🌿',lat:6.4698,lng:3.5826,agentPhone:'2348078901234',desc:'Prime dry land in the fast-developing Abraham Adesanya Estate, Ajah. C of O available. Excellent investment opportunity in Lagos\' fastest growing axis.'},
+  {id:7,type:'short',title:'Luxury 2-Bed Serviced Apt',loc:'Oniru Estate, VI',fullLoc:'Oniru Estate, Victoria Island',price:'₦45,000/night',priceNum:45000,beds:2,baths:2,sqm:110,emoji:'🌴',lat:6.4355,lng:3.4467,agentPhone:'2348089012345',desc:'Premium fully-serviced apartment with pool access, gym, and 24/7 concierge. Located in the exclusive Oniru Estate. Perfect for executives and couples.'},
+  {id:8,type:'rent',title:'Self-Contain (Bedsitter)',loc:'Mushin',fullLoc:'Oshodi-Apapa Expressway, Mushin',price:'₦90,000/yr',priceNum:90000,beds:1,baths:1,sqm:30,emoji:'🏠',lat:6.5247,lng:3.3561,agentPhone:'2348090123456',desc:'Affordable self-contain unit ideal for students and young professionals. Water, security, and street lighting available.'},
+  {id:9,type:'buy',title:'3-Bed Terraced Duplex',loc:'Lekki Phase 2',fullLoc:'Freedom Way, Lekki Phase 2',price:'₦42,000,000',priceNum:42000000,beds:3,baths:3,sqm:185,emoji:'🏗️',lat:6.4634,lng:3.5218,agentPhone:'2348001234567',desc:'Brand new 3-bedroom terraced duplex in a gated estate. Modern architecture with rooftop terrace, estate swimming pool, and 24/7 security.'},
+  {id:10,type:'rent',title:'4-Bedroom Flat',loc:'Ikoyi',fullLoc:'Alexander Road, Ikoyi',price:'₦3,500,000/yr',priceNum:3500000,beds:4,baths:3,sqm:220,emoji:'🏢',lat:6.4431,lng:3.4283,agentPhone:'2348011234567',desc:'Spacious and elegant 4-bedroom flat in old Ikoyi. BQ, 2 parking spaces, generator, and water tank. Quiet, tree-lined street.'},
+  {id:11,type:'short',title:'Executive 3-Bed Apartment',loc:'Victoria Island',fullLoc:'Eko Hotels Area, Victoria Island',price:'₦60,000/night',priceNum:60000,beds:3,baths:3,sqm:160,emoji:'🌆',lat:6.4246,lng:3.4101,agentPhone:'2348021234567',desc:'World-class serviced apartment steps from Eko Hotel and Eko Atlantic. Panoramic city views, Netflix, and airport transfers available.'},
 ];
 
 // Uploaded photos store (in-memory, keyed by listing index)
@@ -1375,7 +1448,10 @@ function showPage(page){
   if(page==='listings') renderListings(PROPS);
   if(page==='agent') renderDashboard();
   // Also re-render featured in case it wasn't ready yet
-  if(page==='home') renderFeatured();
+  if(page==='home'){
+    renderFeatured();
+    setTimeout(()=>initHomeMap(), 300);
+  }
 }
 
 function showListings(type,area){
@@ -1459,6 +1535,9 @@ function showDetail(id){
   const callBtn=document.getElementById('call-btn');
   if(waBtn) waBtn.href=`https://wa.me/${phone}?text=${encodeURIComponent('Hi, I saw your listing on EasyHomes: '+p.title+', '+p.loc+'. I\'m interested.')}`;
   if(callBtn) callBtn.href=`tel:+${phone}`;
+
+  // Init detail map
+  setTimeout(()=>initDetailMap(p), 100);
 
   // Handle photos if uploaded, else show emoji
   const photos=uploadedPhotos[id]||[];
@@ -1591,10 +1670,11 @@ async function renderDashboard(){
       </div>`).join('');
   }
 
-  // Load enquiries count
+  // Load enquiries for this agent only
   const {data:enqs}=await sbClient
     .from('enquiries')
     .select('id,property_title,sender_name,sender_phone,message,created_at')
+    .eq('agent_id', currentUser.id)
     .order('created_at',{ascending:false})
     .limit(5);
 
@@ -1987,8 +2067,8 @@ async function submitEnquiry(){
   const prop=PROPS[currentDetail]||{};
 
   const enquiry={
+    agent_id: prop.agentId||null,
     property_id: null,
-    agent_id: null,
     property_title: prop.title||'',
     property_location: prop.loc||'',
     sender_name: name,
@@ -2028,7 +2108,134 @@ function showToast(msg,type){
   window._toastTimer=setTimeout(()=>t.classList.remove('show'),3400);
 }
 
-// ── MOBILE ──
+// ── MAPS ──
+let homeMap = null;
+let detailMap = null;
+let mapMarkers = [];
+let currentMapFilter = 'all';
+
+function initHomeMap(){
+  if(homeMap) return; // already initialised
+  const mapEl = document.getElementById('home-map');
+  if(!mapEl) return;
+
+  homeMap = L.map('home-map', {
+    center: [6.465, 3.406], // Lagos centre
+    zoom: 12,
+    zoomControl: true,
+    scrollWheelZoom: false, // prevent page scroll hijack
+  });
+
+  // OpenStreetMap tiles — 100% free
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© <a href="https://openstreetmap.org">OpenStreetMap</a>',
+    maxZoom: 19,
+  }).addTo(homeMap);
+
+  // Add pins for all properties
+  addMapPins(PROPS);
+  updateMapCount(PROPS.length);
+}
+
+function makeMarkerIcon(type){
+  const colors = {rent:'#0d5c30', buy:'#c8851a', short:'#6c3fc5'};
+  const labels = {rent:'Rent', buy:'Sale', short:'Stay'};
+  const color = colors[type] || '#0d5c30';
+  const label = labels[type] || '';
+  return L.divIcon({
+    className: '',
+    html: `<div class="map-pin ${type}">₦ ${label}</div>`,
+    iconAnchor: [30, 14],
+    popupAnchor: [0, -16],
+  });
+}
+
+function addMapPins(props){
+  // Clear existing markers
+  mapMarkers.forEach(m => homeMap.removeLayer(m));
+  mapMarkers = [];
+
+  props.forEach(p => {
+    if(!p.lat || !p.lng) return;
+    const marker = L.marker([p.lat, p.lng], {icon: makeMarkerIcon(p.type)});
+
+    const bedsText = p.beds > 0 ? `🛏 ${p.beds} bed${p.beds>1?'s':''}` : '🌿 Land';
+    const popupHtml = `
+      <div class="map-popup">
+        <div class="map-popup-price">${p.price}</div>
+        <div class="map-popup-title">${p.title}</div>
+        <div class="map-popup-loc">📍 ${p.loc}</div>
+        <div class="map-popup-meta">
+          <span>${bedsText}</span>
+          ${p.baths>0?`<span>🚿 ${p.baths} bath${p.baths>1?'s':''}</span>`:''}
+          <span>📐 ${p.sqm}m²</span>
+        </div>
+        <button class="map-popup-btn" onclick="showDetail(${p.id});homeMap && homeMap.closePopup()">
+          View Property →
+        </button>
+      </div>`;
+
+    marker.bindPopup(popupHtml, {maxWidth: 240, minWidth: 220});
+    marker.addTo(homeMap);
+    mapMarkers.push(marker);
+  });
+}
+
+function filterMapPins(type, btn){
+  currentMapFilter = type;
+  // Update button styles
+  document.querySelectorAll('.map-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  // Filter
+  const filtered = type === 'all' ? PROPS : PROPS.filter(p => p.type === type);
+  addMapPins(filtered);
+  updateMapCount(filtered.length);
+  // Fit map to visible pins
+  if(filtered.length > 0){
+    const bounds = filtered.map(p => [p.lat, p.lng]);
+    homeMap.fitBounds(bounds, {padding: [40,40], maxZoom: 13});
+  }
+}
+
+function updateMapCount(n){
+  const el = document.getElementById('map-count');
+  if(el) el.textContent = `${n} propert${n===1?'y':'ies'} on map`;
+}
+
+function initDetailMap(p){
+  // Destroy old map if exists
+  if(detailMap){
+    detailMap.remove();
+    detailMap = null;
+  }
+  const mapEl = document.getElementById('detail-map');
+  if(!mapEl || !p.lat || !p.lng) return;
+
+  detailMap = L.map('detail-map', {
+    center: [p.lat, p.lng],
+    zoom: 15,
+    zoomControl: true,
+    scrollWheelZoom: false,
+  });
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© <a href="https://openstreetmap.org">OpenStreetMap</a>',
+    maxZoom: 19,
+  }).addTo(detailMap);
+
+  // Custom pin
+  const icon = L.divIcon({
+    className: '',
+    html: `<div style="background:var(--green);color:#fff;border-radius:50% 50% 50% 0;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:1rem;box-shadow:0 4px 12px rgba(13,92,48,0.5);border:2px solid #fff;transform:rotate(-45deg)"><span style="transform:rotate(45deg)">🏠</span></div>`,
+    iconAnchor: [16, 32],
+    popupAnchor: [0, -36],
+  });
+
+  L.marker([p.lat, p.lng], {icon})
+    .addTo(detailMap)
+    .bindPopup(`<div style="font-family:var(--font-body);padding:6px"><b>${p.title}</b><br><span style="color:var(--gray-mid);font-size:0.8rem">📍 ${p.fullLoc}</span></div>`)
+    .openPopup();
+}
 function toggleMobileMenu(){
   document.getElementById('mobile-menu').classList.toggle('open');
 }
@@ -2046,6 +2253,7 @@ window.addEventListener('scroll',()=>{
 // Render featured cards immediately on DOM ready (before Supabase loads)
 document.addEventListener('DOMContentLoaded',()=>{
   renderFeatured();
+  setTimeout(()=>initHomeMap(), 400);
 });
 // (initialisation now runs inside window.addEventListener('load') above)
 </script>
