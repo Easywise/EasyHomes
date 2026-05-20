@@ -718,22 +718,22 @@ footer{background:var(--dark);padding:56px 5% 28px}
       </div>
       <div class="hero-right">
         <div class="hero-card" onclick="showDetail(0)">
-          <div class="hero-card-img"><span class="emoji-fallback">🏢</span><div class="price-tag">₦800k/yr</div></div>
+          <div class="hero-card-img" style="background:#111"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0" loading="lazy"><div class="price-tag">₦5.5M/yr</div></div>
           <div class="hero-card-body">
             <div class="hero-card-name">3-Bed Flat — Lekki Phase 1</div>
-            <div class="hero-card-loc">📍 Lekki, Lagos Island</div>
+            <div class="hero-card-loc">📍 Admiralty Way, Lekki Phase 1</div>
             <div class="hero-card-meta">
-              <span class="hcm">🛏 3 beds</span><span class="hcm">🚿 2 baths</span><span class="hcm">🅿️ Parking</span>
+              <span class="hcm">🛏 3 beds</span><span class="hcm">🚿 3 baths</span><span class="hcm">🅿️ Parking</span>
             </div>
           </div>
         </div>
-        <div class="hero-card" onclick="showDetail(1)">
-          <div class="hero-card-img" style="background:linear-gradient(135deg,#3d2b1a,#6b4a2a)"><span class="emoji-fallback">🏰</span><div class="price-tag">₦120M</div></div>
+        <div class="hero-card" onclick="showDetail(4)">
+          <div class="hero-card-img" style="background:#111"><img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0" loading="lazy"><div class="price-tag">₦450M</div></div>
           <div class="hero-card-body">
-            <div class="hero-card-name">5-Bed Duplex — Banana Island</div>
-            <div class="hero-card-loc">📍 Banana Island, Ikoyi</div>
+            <div class="hero-card-name">5-Bed Detached — Old Ikoyi</div>
+            <div class="hero-card-loc">📍 Bourdillon Road, Ikoyi</div>
             <div class="hero-card-meta">
-              <span class="hcm">🛏 5 beds</span><span class="hcm">🏊 Pool</span><span class="hcm">🔒 Gated</span>
+              <span class="hcm">🛏 5 beds</span><span class="hcm">🏊 Pool</span><span class="hcm">🔒 C of O</span>
             </div>
           </div>
         </div>
@@ -949,7 +949,7 @@ footer{background:var(--dark);padding:56px 5% 28px}
     </div>
     <div class="results-area">
       <div class="results-bar">
-        <div class="results-count"><strong id="results-count">12</strong> properties found</div>
+        <div class="results-count"><strong id="results-count">20</strong> properties found</div>
         <select class="sort-select">
           <option>Sort: Newest First</option>
           <option>Price: Low to High</option>
@@ -975,16 +975,16 @@ footer{background:var(--dark);padding:56px 5% 28px}
   <div class="detail-body">
     <div class="detail-main">
       <div class="detail-price-row">
-        <div class="detail-price" id="detail-price">₦800,000/yr</div>
+        <div class="detail-price" id="detail-price">₦2,800,000/yr</div>
         <span class="detail-type" id="detail-type">For Rent</span>
       </div>
       <h1 class="detail-title" id="detail-title">3-Bedroom Flat, Lekki Phase 1</h1>
       <p class="detail-loc" id="detail-loc">📍 Admiralty Way, Lekki Phase 1, Lagos</p>
       <div class="detail-feats">
         <div class="dfeat"><div class="dfeat-n" id="d-beds">3</div><div class="dfeat-l">Bedrooms</div></div>
-        <div class="dfeat"><div class="dfeat-n" id="d-baths">2</div><div class="dfeat-l">Bathrooms</div></div>
-        <div class="dfeat"><div class="dfeat-n" id="d-sqm">140</div><div class="dfeat-l">Sqm</div></div>
-        <div class="dfeat"><div class="dfeat-n" id="d-floor">3rd</div><div class="dfeat-l">Floor</div></div>
+        <div class="dfeat"><div class="dfeat-n" id="d-baths">3</div><div class="dfeat-l">Bathrooms</div></div>
+        <div class="dfeat"><div class="dfeat-n" id="d-sqm">160</div><div class="dfeat-l">Sqm</div></div>
+        <div class="dfeat"><div class="dfeat-n" id="d-floor">2nd</div><div class="dfeat-l">Floor</div></div>
       </div>
       <h3 class="detail-section-title">About this Property</h3>
       <p class="detail-desc" id="detail-desc">A beautiful and spacious 3-bedroom flat in the heart of Lekki Phase 1...</p>
@@ -1090,7 +1090,7 @@ footer{background:var(--dark);padding:56px 5% 28px}
       </div>
       <div class="form-group">
         <label class="form-label">Price (₦)</label>
-        <input class="form-input" id="l-price" type="number" placeholder="e.g. 800000">
+        <input class="form-input" id="l-price" type="number" placeholder="e.g. 2500000">
       </div>
       <div class="form-group">
         <label class="form-label">Price Frequency</label>
@@ -1180,7 +1180,7 @@ footer{background:var(--dark);padding:56px 5% 28px}
         <div style="font-weight:700;color:var(--green);font-size:0.85rem">easywisehome@gmail.com</div>
       </a>
 
-      <a href="mailto:agents@easyhomes.ng"
+      <a href="mailto:easywisehome@gmail.com"
         style="display:block;text-decoration:none;background:#fff;border-radius:16px;padding:28px 24px;border:1.5px solid var(--gray-light);transition:all .2s;text-align:center"
         onmouseover="this.style.borderColor='var(--gold)';this.style.boxShadow='0 4px 20px rgba(200,133,26,0.1)'"
         onmouseout="this.style.borderColor='var(--gray-light)';this.style.boxShadow='none'">
@@ -1190,7 +1190,7 @@ footer{background:var(--dark);padding:56px 5% 28px}
         <div style="font-weight:700;color:var(--gold);font-size:0.85rem">easywisehome@gmail.com</div>
       </a>
 
-      <a href="mailto:partners@easyhomes.ng"
+      <a href="mailto:easywisehome@gmail.com"
         style="display:block;text-decoration:none;background:#fff;border-radius:16px;padding:28px 24px;border:1.5px solid var(--gray-light);transition:all .2s;text-align:center"
         onmouseover="this.style.borderColor='var(--green)';this.style.boxShadow='0 4px 20px rgba(13,92,48,0.1)'"
         onmouseout="this.style.borderColor='var(--gray-light)';this.style.boxShadow='none'">
@@ -1282,6 +1282,7 @@ footer{background:var(--dark);padding:56px 5% 28px}
         <h2 style="font-family:var(--font-display);font-size:1.8rem;font-weight:700">Frequently Asked <em style="color:var(--green-light)">Questions</em></h2>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(460px,1fr));gap:16px" id="faq-list">
+        <!-- FAQ items rendered by JS -->
       </div>
     </div>
   </div>
@@ -1295,20 +1296,17 @@ footer{background:var(--dark);padding:56px 5% 28px}
       <button class="modal-close" onclick="closeModal('auth-modal')">✕</button>
     </div>
 
-    <!-- Auth tabs -->
     <div class="auth-tabs">
       <div class="auth-tab active" id="tab-login" onclick="setAuthTab('login')">Login</div>
       <div class="auth-tab" id="tab-signup" onclick="setAuthTab('signup')">Create Account</div>
     </div>
 
-    <!-- GOOGLE BUTTON (both tabs) -->
     <button class="google-btn" onclick="doGoogleLogin()">
       <svg width="18" height="18" viewBox="0 0 48 48" style="flex-shrink:0"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/><path fill="none" d="M0 0h48v48H0z"/></svg>
       Continue with Google
     </button>
     <div class="auth-divider"><span>or</span></div>
 
-    <!-- LOGIN FORM -->
     <div id="auth-login-panel">
       <div class="auth-form">
         <div style="display:flex;flex-direction:column;gap:5px">
@@ -1320,14 +1318,12 @@ footer{background:var(--dark);padding:56px 5% 28px}
           <input class="form-input-auth" id="login-password" type="password" placeholder="Your password">
         </div>
         <button class="auth-submit" id="login-btn" onclick="doLogin()">Login to EasyHomes →</button>
-
         <p style="text-align:center;font-size:0.8rem;color:var(--gray-mid)">
           Forgot your password? <span class="auth-link" onclick="doPasswordReset()">Reset it</span>
         </p>
       </div>
     </div>
 
-    <!-- SIGNUP FORM -->
     <div id="auth-signup-panel" style="display:none">
       <p style="font-size:0.84rem;color:var(--gray-mid);margin-bottom:14px;font-weight:300">I am a…</p>
       <div class="role-selector">
@@ -1351,7 +1347,6 @@ footer{background:var(--dark);padding:56px 5% 28px}
         <input class="form-input-auth" id="signup-phone" type="tel" placeholder="Phone number (e.g. 0812…)">
         <input class="form-input-auth" id="signup-password" type="password" placeholder="Create password (min 6 chars)">
 
-        <!-- Agent profile photo upload -->
         <div id="agent-photo-section" style="display:none">
           <div style="font-size:0.8rem;font-weight:700;color:var(--dark);margin-bottom:6px">Profile Photo <span style="color:var(--gray-mid);font-weight:400">(optional)</span></div>
           <div style="display:flex;align-items:center;gap:14px">
@@ -1365,16 +1360,16 @@ footer{background:var(--dark);padding:56px 5% 28px}
         </div>
 
         <button class="auth-submit" id="signup-btn" onclick="doSignup()">Create Account →</button>
-      </div><!-- end auth-form -->
-    </div><!-- end auth-signup-panel -->
-  </div><!-- end modal inner -->
-</div><!-- end auth-modal -->
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- BACK TO TOP -->
 <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
 
 <!-- FLOATING WHATSAPP -->
-<a id="wa-float" href="https://wa.me/2348035107130?text=Hi%20EasyHomes%2C%20I%20need%20some%20help%20with%20the%20platform." target="_blank" rel="noopener" title="Chat with us on WhatsApp">
+<a id="wa-float" href="https://wa.me/2348035107130?text=Hi%20EasyHomes%2C%20I%20need%20some%20help%20with%20the%20platform." target="_blank" rel="noopener" title="Chat with us on WhatsApp" style="position:fixed;bottom:80px;right:28px;z-index:800;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,0.4);transition:transform .2s" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
   <svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
@@ -1382,76 +1377,251 @@ footer{background:var(--dark);padding:56px 5% 28px}
 <div class="toast" id="toast"></div>
 
 <script>
-// ── WAIT FOR SUPABASE CDN TO BE READY ──
-// The CDN exposes window.supabase – we must not call createClient until the
-// page has fully loaded, otherwise we get "already declared" race errors.
+// ── SUPABASE INIT ──
 let sbClient = null;
-
 window.addEventListener('load', function() {
   sbClient = window.supabase.createClient(
     'https://qrheqgilbhxdzppgelzh.supabase.co',
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFyaGVxZ2lsYmh4ZHpwcGdlbHpoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgzMzkxNDEsImV4cCI6MjA5MzkxNTE0MX0.Vaoo_0VJepdC8xD34NXh_WMsh3XF49FdaHUhXWk06r0'
   );
-
-  // Wire nav button AFTER load so openAuth() exists
   document.getElementById('nav-auth-btn').addEventListener('click', openAuth);
-
-  // Check existing session
   sbClient.auth.getSession().then(({ data: { session } }) => {
     if (session) setLoggedIn(session.user);
     else setLoggedOut();
   });
-
-  // Listen for auth changes (login / logout)
   sbClient.auth.onAuthStateChange((event, session) => {
     if (session) setLoggedIn(session.user);
     else setLoggedOut();
   });
-
-  // Render featured listings on homepage
   renderFeatured();
+  renderFAQ();
 });
 
-// ── DATA ──
+// ── REALISTIC LAGOS PROPERTY DATA (2025 Market Prices + Real Photos) ──
 const PROPS = [
-  {id:0,type:'rent',title:'3-Bedroom Flat',loc:'Lekki Phase 1',fullLoc:'Admiralty Way, Lekki Phase 1',price:'₦800,000/yr',priceNum:800000,beds:3,baths:2,sqm:140,emoji:'🏢',lat:6.4541,lng:3.4694,agentPhone:'2348012345678',desc:'A beautiful and spacious 3-bedroom flat in the heart of Lekki Phase 1. Fully serviced with modern finishes, ample natural light, and dedicated parking. Minutes from major landmarks including the Lekki-Epe Expressway, Genesis Cinema, and top restaurants. Perfect for professionals and young families.'},
-  {id:1,type:'buy',title:'5-Bedroom Duplex',loc:'Banana Island, Ikoyi',fullLoc:'Banana Island Estate, Ikoyi',price:'₦120,000,000',priceNum:120000000,beds:5,baths:5,sqm:450,emoji:'🏰',lat:6.4480,lng:3.4285,agentPhone:'2348023456789',desc:'An extraordinary luxury duplex on the prestigious Banana Island. Features an infinity pool, home theatre, smart home systems, and breathtaking ocean views. The pinnacle of Lagos luxury living.'},
-  {id:2,type:'short',title:'Cozy 1-Bed Studio',loc:'Victoria Island',fullLoc:'Adeola Odeku St, Victoria Island',price:'₦25,000/night',priceNum:25000,beds:1,baths:1,sqm:55,emoji:'🏙️',lat:6.4281,lng:3.4219,agentPhone:'2348034567890',desc:'A stylish, modern studio apartment perfect for business travellers and short-term visitors. Walking distance to major VI offices, restaurants, and nightlife.'},
-  {id:3,type:'rent',title:'2-Bedroom Flat',loc:'Yaba',fullLoc:'Herbert Macaulay Way, Yaba',price:'₦350,000/yr',priceNum:350000,beds:2,baths:1,sqm:90,emoji:'🏗️',lat:6.5095,lng:3.3711,agentPhone:'2348045678901',desc:'Affordable, clean 2-bedroom apartment in the heart of Yaba — Lagos tech hub. Excellent access to UNILAG, market, and transport links.'},
-  {id:4,type:'buy',title:'4-Bed Detached House',loc:'Ikeja GRA',fullLoc:'Obafemi Awolowo Way, Ikeja GRA',price:'₦65,000,000',priceNum:65000000,beds:4,baths:3,sqm:280,emoji:'🏡',lat:6.5944,lng:3.3403,agentPhone:'2348056789012',desc:'A well-maintained 4-bedroom detached home in the quiet and secure Ikeja GRA. Spacious compound with room for expansion. Ideal for families.'},
-  {id:5,type:'rent',title:'3-Bedroom Bungalow',loc:'Surulere',fullLoc:'Adeniran Ogunsanya St, Surulere',price:'₦450,000/yr',priceNum:450000,beds:3,baths:2,sqm:120,emoji:'🏘️',lat:6.4969,lng:3.3481,agentPhone:'2348067890123',desc:'Charming 3-bedroom bungalow in a quiet Surulere street. Perfect for families. Close to National Stadium, shops, and schools.'},
-  {id:6,type:'buy',title:'Land (650 sqm)',loc:'Ajah',fullLoc:'Abraham Adesanya Estate, Ajah',price:'₦18,000,000',priceNum:18000000,beds:0,baths:0,sqm:650,emoji:'🌿',lat:6.4698,lng:3.5826,agentPhone:'2348078901234',desc:'Prime dry land in the fast-developing Abraham Adesanya Estate, Ajah. C of O available. Excellent investment opportunity in Lagos\' fastest growing axis.'},
-  {id:7,type:'short',title:'Luxury 2-Bed Serviced Apt',loc:'Oniru Estate, VI',fullLoc:'Oniru Estate, Victoria Island',price:'₦45,000/night',priceNum:45000,beds:2,baths:2,sqm:110,emoji:'🌴',lat:6.4355,lng:3.4467,agentPhone:'2348089012345',desc:'Premium fully-serviced apartment with pool access, gym, and 24/7 concierge. Located in the exclusive Oniru Estate. Perfect for executives and couples.'},
-  {id:8,type:'rent',title:'Self-Contain (Bedsitter)',loc:'Mushin',fullLoc:'Oshodi-Apapa Expressway, Mushin',price:'₦90,000/yr',priceNum:90000,beds:1,baths:1,sqm:30,emoji:'🏠',lat:6.5247,lng:3.3561,agentPhone:'2348090123456',desc:'Affordable self-contain unit ideal for students and young professionals. Water, security, and street lighting available.'},
-  {id:9,type:'buy',title:'3-Bed Terraced Duplex',loc:'Lekki Phase 2',fullLoc:'Freedom Way, Lekki Phase 2',price:'₦42,000,000',priceNum:42000000,beds:3,baths:3,sqm:185,emoji:'🏗️',lat:6.4634,lng:3.5218,agentPhone:'2348001234567',desc:'Brand new 3-bedroom terraced duplex in a gated estate. Modern architecture with rooftop terrace, estate swimming pool, and 24/7 security.'},
-  {id:10,type:'rent',title:'4-Bedroom Flat',loc:'Ikoyi',fullLoc:'Alexander Road, Ikoyi',price:'₦3,500,000/yr',priceNum:3500000,beds:4,baths:3,sqm:220,emoji:'🏢',lat:6.4431,lng:3.4283,agentPhone:'2348011234567',desc:'Spacious and elegant 4-bedroom flat in old Ikoyi. BQ, 2 parking spaces, generator, and water tank. Quiet, tree-lined street.'},
-  {id:11,type:'short',title:'Executive 3-Bed Apartment',loc:'Victoria Island',fullLoc:'Eko Hotels Area, Victoria Island',price:'₦60,000/night',priceNum:60000,beds:3,baths:3,sqm:160,emoji:'🌆',lat:6.4246,lng:3.4101,agentPhone:'2348021234567',desc:'World-class serviced apartment steps from Eko Hotel and Eko Atlantic. Panoramic city views, Netflix, and airport transfers available.'},
+  // ── FOR RENT ──
+  {
+    id: 0, type: 'rent',
+    title: '3-Bedroom Flat', loc: 'Lekki Phase 1', fullLoc: 'Admiralty Way, Lekki Phase 1',
+    price: '₦5,500,000/yr', priceNum: 5500000, beds: 3, baths: 3, sqm: 160, floor: '2nd',
+    photo: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80',
+    emoji: '🏢', lat: 6.4541, lng: 3.4694, agentPhone: '2348035107130',
+    agentName: 'Chukwuemeka Obi', agentInitials: 'CO', agentRating: '4.9 (63 reviews)',
+    amenities: ['24/7 Electricity (Generator)', 'Borehole Water Supply', 'Dedicated Parking (2 slots)', 'CCTV & Security', 'Fitted Kitchen', 'Air Conditioning', 'Tiled Floors', 'Visitor Parking'],
+    desc: 'Well-finished 3-bedroom flat on Admiralty Way in the heart of Lekki Phase 1. The unit sits on the 2nd floor of a serviced block, features open-plan living and dining, en-suite master bedroom, and a private balcony. Estate has 24/7 generator (100KVA), borehole, CCTV, and dedicated security. Walking distance to Lekki Phase 1 market, Shoprite Lekki, and the Admiralty Roundabout bus stop. Service charge: ₦250,000/yr.'
+  },
+  {
+    id: 1, type: 'rent',
+    title: '2-Bedroom Flat', loc: 'Yaba', fullLoc: 'Herbert Macaulay Way, Yaba',
+    price: '₦1,200,000/yr', priceNum: 1200000, beds: 2, baths: 2, sqm: 95, floor: '1st',
+    photo: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80',
+    emoji: '🏗️', lat: 6.5095, lng: 3.3711, agentPhone: '2348035107130',
+    agentName: 'Taiwo Adeyemi', agentInitials: 'TA', agentRating: '4.7 (31 reviews)',
+    amenities: ['PHCN + Generator Backup', 'Borehole Water', 'Security / Gateman', 'Fitted Kitchen', 'Tiled Floors', 'Intercom', 'Street Parking'],
+    desc: 'Clean and modern 2-bedroom flat on Herbert Macaulay Way, minutes from Yaba Tech Cluster and UNILAG. Tiled floors throughout, fitted kitchen, two self-contained bathrooms. Generator backup for uninterrupted power. Ideal for young professionals and couples. Close to CcHub, Yaba market, and multiple BRT stops.'
+  },
+  {
+    id: 2, type: 'rent',
+    title: '4-Bedroom Terrace Duplex', loc: 'Ikeja GRA', fullLoc: 'Mobolaji Bank Anthony Way, Ikeja GRA',
+    price: '₦7,000,000/yr', priceNum: 7000000, beds: 4, baths: 4, sqm: 240, floor: 'G + 1st',
+    photo: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80',
+    emoji: '🏡', lat: 6.5944, lng: 3.3403, agentPhone: '2348035107130',
+    agentName: 'Funmilayo Adesanya', agentInitials: 'FA', agentRating: '5.0 (18 reviews)',
+    amenities: ['24/7 Estate Generator', 'Borehole + Overhead Tank', 'BQ (Boys Quarters)', '2 Covered Parking', 'Security Post', 'CCTV', 'Fitted Kitchen', 'Intercom'],
+    desc: 'Spacious 4-bedroom terrace duplex on one of Ikeja GRA\'s most sought-after streets. Open lounge, formal dining, kitchen, and guest toilet downstairs. All four en-suite bedrooms upstairs with wardrobe space. BQ, 2 covered parking bays, and garden. 24/7 security and uninterrupted estate power. Minutes from MMA domestic airport, Ikeja City Mall, and Sheraton Lagos.'
+  },
+  {
+    id: 3, type: 'rent',
+    title: '3-Bedroom Bungalow', loc: 'Surulere', fullLoc: 'Adeniran Ogunsanya Street, Surulere',
+    price: '₦1,800,000/yr', priceNum: 1800000, beds: 3, baths: 2, sqm: 130, floor: 'Ground',
+    photo: 'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&q=80',
+    emoji: '🏘️', lat: 6.4969, lng: 3.3481, agentPhone: '2348035107130',
+    agentName: 'Olumide Bakare', agentInitials: 'OB', agentRating: '4.8 (44 reviews)',
+    amenities: ['Generator Backup', 'Borehole Water', 'Compound Parking (3 cars)', 'Security / Gateman', 'Fitted Kitchen', 'Tiled Floors', 'Spacious Compound'],
+    desc: 'Comfortable 3-bedroom bungalow on a quiet street off Adeniran Ogunsanya, Surulere. Large living room, dining area, and a well-maintained compound with 3-car parking. All bedrooms have built-in wardrobes. Easy access to National Stadium, Tejuosho Market, and the Eric Moore BRT stop. Ideal for families or shared occupancy.'
+  },
+  {
+    id: 4, type: 'rent',
+    title: '1-Bedroom Flat (Self-Contain)', loc: 'Lekki Phase 2', fullLoc: 'Freedom Way, Lekki Phase 2',
+    price: '₦900,000/yr', priceNum: 900000, beds: 1, baths: 1, sqm: 55, floor: '3rd',
+    photo: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
+    emoji: '🏢', lat: 6.4634, lng: 3.5218, agentPhone: '2348035107130',
+    agentName: 'Ngozi Eze', agentInitials: 'NE', agentRating: '4.6 (22 reviews)',
+    amenities: ['Generator Backup', 'Borehole Water', 'Security', 'Parking', 'Tiled Floors', 'Air Conditioning'],
+    desc: 'Neat and affordable 1-bedroom self-contain on Freedom Way, Lekki Phase 2. Separate kitchen, bathroom, and storage room. Generator, borehole, and gateman on site. Close to Lekki Conservation Centre, Novare Lekki Mall, and Chevron junction bus stop. Great for a young professional or graduate.'
+  },
+  {
+    id: 5, type: 'rent',
+    title: '5-Bedroom Detached House', loc: 'Old Ikoyi', fullLoc: 'Alexander Road, Old Ikoyi',
+    price: '₦28,000,000/yr', priceNum: 28000000, beds: 5, baths: 5, sqm: 380, floor: 'G + 1st',
+    photo: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80',
+    emoji: '🏛️', lat: 6.4431, lng: 3.4283, agentPhone: '2348035107130',
+    agentName: 'Damilola Adewale', agentInitials: 'DA', agentRating: '4.9 (29 reviews)',
+    amenities: ['Dedicated Transformer (24/7)', 'Swimming Pool', 'BQ (2 rooms)', '4 Covered Parking', 'Smart Home System', 'Home Theatre', 'Gym Room', 'CCTV', 'Electric Fence', 'Fitted Kitchen'],
+    desc: 'Grand 5-bedroom fully detached home on the prestigious Alexander Road, Old Ikoyi. Marble flooring throughout, open-concept kitchen with island, formal and informal living areas, and a stunning outdoor pool. All bedrooms en-suite with walk-in closets. 2-room BQ and dedicated transformer. Walking distance to Ikoyi Club 1938 and top embassies. Price negotiable for 2-year upfront.'
+  },
+  {
+    id: 6, type: 'rent',
+    title: '2-Bedroom Flat', loc: 'Ajah', fullLoc: 'Badore Road, Ajah',
+    price: '₦850,000/yr', priceNum: 850000, beds: 2, baths: 2, sqm: 90, floor: '1st',
+    photo: 'https://images.unsplash.com/photo-1555636222-cae831e670b3?w=800&q=80',
+    emoji: '🏠', lat: 6.4698, lng: 3.5826, agentPhone: '2348035107130',
+    agentName: 'Blessing Okonkwo', agentInitials: 'BO', agentRating: '4.5 (17 reviews)',
+    amenities: ['Generator Backup', 'Borehole Water', 'Security', 'Parking', 'Fitted Kitchen', 'Tiled Floors'],
+    desc: 'Affordable 2-bedroom flat on Badore Road, Ajah. Good road network with easy access to the Lekki-Epe Expressway. Both bedrooms en-suite. Generator, borehole, and security on site. Close to Ajah market, several churches, and Abraham Adesanya roundabout. Great for families relocating to the Lekki axis on a budget.'
+  },
+  {
+    id: 7, type: 'rent',
+    title: '3-Bedroom Flat', loc: 'Victoria Island', fullLoc: 'Adeola Odeku Street, Victoria Island',
+    price: '₦9,000,000/yr', priceNum: 9000000, beds: 3, baths: 3, sqm: 185, floor: '4th',
+    photo: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80',
+    emoji: '🌆', lat: 6.4281, lng: 3.4219, agentPhone: '2348035107130',
+    agentName: 'Emeka Nwachukwu', agentInitials: 'EN', agentRating: '4.8 (38 reviews)',
+    amenities: ['24/7 Electricity (Dedicated Gen + PHCN)', 'City Views', 'Concierge', 'Swimming Pool', 'Gym', '2 Parking Bays', 'CCTV', 'Fitted Kitchen', 'Air Conditioning'],
+    desc: 'Premium 3-bedroom apartment on Adeola Odeku Street, Victoria Island. 4th floor unit with panoramic VI skyline views. Marble finishes, gourmet kitchen, master suite with walk-in wardrobe. Rooftop pool, gym, 24/7 concierge, and underground parking. Ideal for executives. Walking distance to Sterling Bank HQ, Eko Hotel, and the best restaurants in Lagos.'
+  },
+
+  // ── FOR SALE ──
+  {
+    id: 8, type: 'buy',
+    title: '5-Bedroom Fully Detached', loc: 'Old Ikoyi', fullLoc: 'Bourdillon Road, Old Ikoyi',
+    price: '₦450,000,000', priceNum: 450000000, beds: 5, baths: 6, sqm: 520, floor: 'G + 1st',
+    photo: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80',
+    emoji: '🏰', lat: 6.4480, lng: 3.4285, agentPhone: '2348035107130',
+    agentName: 'Temitope Fashola', agentInitials: 'TF', agentRating: '5.0 (52 reviews)',
+    amenities: ["Governor's Consent (C of O)", 'Infinity Pool', 'BQ (3 rooms)', '5 Car Garage', 'Home Automation', 'Private Cinema', 'Wine Cellar', 'CCTV + Guards', 'Dedicated Transformer', 'Landscaped Garden'],
+    desc: 'An exceptional property on Bourdillon Road — one of Nigeria\'s most exclusive addresses. This 5-bedroom mansion spans 520sqm on a 1,200sqm plot with Governor\'s Consent. Italian marble floors, custom chef\'s kitchen, infinity pool, private cinema, wine cellar, and smart home automation. 3-room BQ and 5-car garage. Perfect for HNWIs, diplomats, or investors. Title documents available on request.'
+  },
+  {
+    id: 9, type: 'buy',
+    title: '4-Bedroom Semi-Detached Duplex', loc: 'Lekki Phase 1', fullLoc: 'Chevron Drive, Lekki Phase 1',
+    price: '₦130,000,000', priceNum: 130000000, beds: 4, baths: 4, sqm: 280, floor: 'G + 1st',
+    photo: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80',
+    emoji: '🏡', lat: 6.4580, lng: 3.4720, agentPhone: '2348035107130',
+    agentName: 'Adaeze Nwosu', agentInitials: 'AN', agentRating: '4.8 (41 reviews)',
+    amenities: ['C of O', 'Estate Pool', 'BQ (1 room)', '2 Parking', 'Estate Generator', 'CCTV', 'Fitted Kitchen', 'Air Conditioning'],
+    desc: 'New-build 4-bedroom semi-detached duplex in a fully gated estate off Chevron Drive. Open lounge, dining, kitchen, and guest toilet downstairs. 4 en-suite bedrooms with fitted wardrobes plus a study upstairs. BQ, 2 covered parking bays, and access to estate pool and gym. 24/7 estate generator. C of O available. Ideal for families or as a rental investment.'
+  },
+  {
+    id: 10, type: 'buy',
+    title: '3-Bedroom Terraced Duplex', loc: 'Lekki Phase 2', fullLoc: 'Orchid Hotel Road, Lekki Phase 2',
+    price: '₦68,000,000', priceNum: 68000000, beds: 3, baths: 3, sqm: 190, floor: 'G + 1st',
+    photo: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80',
+    emoji: '🏗️', lat: 6.4634, lng: 3.5300, agentPhone: '2348035107130',
+    agentName: 'Rotimi Olawale', agentInitials: 'RO', agentRating: '4.7 (26 reviews)',
+    amenities: ['C of O', 'Estate Generator', 'Estate Pool', 'Parking', 'CCTV', 'Security', 'Fitted Kitchen', 'Rooftop Terrace'],
+    desc: 'Newly completed 3-bedroom terraced duplex off Orchid Hotel Road, Lekki Phase 2. Rooftop terrace with great views. Fitted kitchen downstairs, all 3 bedrooms en-suite. Estate pool, generator, CCTV, and 24/7 security. Ideal for young families or a buy-to-let investment. Close to Novare Lekki Mall and the Lekki Free Zone.'
+  },
+  {
+    id: 11, type: 'buy',
+    title: '4-Bedroom Detached House', loc: 'Ikeja GRA', fullLoc: 'Isaac John Street, Ikeja GRA',
+    price: '₦160,000,000', priceNum: 160000000, beds: 4, baths: 4, sqm: 300, floor: 'G + 1st',
+    photo: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&q=80',
+    emoji: '🏠', lat: 6.6010, lng: 3.3490, agentPhone: '2348035107130',
+    agentName: 'Funke Abiodun', agentInitials: 'FA', agentRating: '4.9 (35 reviews)',
+    amenities: ['C of O', 'BQ (2 rooms)', '3 Parking', 'Garden', 'Generator', 'Security Post', 'Fitted Kitchen', 'CCTV'],
+    desc: 'Well-maintained 4-bedroom detached house on Isaac John Street, one of Ikeja GRA\'s most desirable streets. Manicured compound, 3-car parking, and 2-room BQ. Spacious lounge, formal dining, and modern kitchen. All bedrooms en-suite. C of O available. Excellent for families or expats. Close to Ikeja City Mall and MMA domestic airport.'
+  },
+  {
+    id: 12, type: 'buy',
+    title: 'Land (500 sqm) — Dry Land', loc: 'Ajah', fullLoc: 'Abraham Adesanya Estate, Ajah',
+    price: '₦28,000,000', priceNum: 28000000, beds: 0, baths: 0, sqm: 500, floor: '—',
+    photo: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80',
+    emoji: '🌿', lat: 6.4698, lng: 3.5900, agentPhone: '2348035107130',
+    agentName: 'Chidi Okafor', agentInitials: 'CO', agentRating: '4.6 (19 reviews)',
+    amenities: ['Registered Survey', 'C of O (in process)', 'Dry Land', 'Good Road Access', 'Fenced', 'Corner Piece'],
+    desc: 'Corner-piece dry land (500sqm) in Abraham Adesanya Estate, Ajah. Registered survey available; C of O processing ongoing. Fenced, accessible via tarred road, quiet residential zone. Ideal for self-build or development. One of Lagos\' fastest-growing corridors — land in this estate has doubled in value over the last 4 years.'
+  },
+  {
+    id: 13, type: 'buy',
+    title: '3-Bedroom Apartment', loc: 'Victoria Island', fullLoc: 'Ozumba Mbadiwe Avenue, Victoria Island',
+    price: '₦95,000,000', priceNum: 95000000, beds: 3, baths: 3, sqm: 175, floor: '6th',
+    photo: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80',
+    emoji: '🌆', lat: 6.4300, lng: 3.4180, agentPhone: '2348035107130',
+    agentName: 'Kemi Badmus', agentInitials: 'KB', agentRating: '4.8 (47 reviews)',
+    amenities: ['C of O', 'Ocean Views', 'Rooftop Pool', 'Gym', '2 Parking', 'Concierge', 'Dedicated Gen', 'CCTV', 'Fitted Kitchen', 'Smart Home'],
+    desc: 'Luxury 3-bedroom apartment on the 6th floor with stunning Atlantic Ocean views and Eko Atlantic in the background. Marble floors, open-plan kitchen with island, master suite with his-and-hers wardrobes. Rooftop pool, gym, concierge, and dedicated generator. C of O available. Ideal as primary residence or luxury investment property on VI.'
+  },
+  {
+    id: 14, type: 'buy',
+    title: 'Land (650 sqm)', loc: 'Ibeju-Lekki', fullLoc: 'Eleko Junction, Ibeju-Lekki',
+    price: '₦12,000,000', priceNum: 12000000, beds: 0, baths: 0, sqm: 650, floor: '—',
+    photo: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80',
+    emoji: '🌾', lat: 6.5100, lng: 3.8200, agentPhone: '2348035107130',
+    agentName: 'Seun Akinbode', agentInitials: 'SA', agentRating: '4.5 (14 reviews)',
+    amenities: ['Deed of Assignment', 'Dry Land', 'Good Road Access', 'Layout Map Available', 'Investment Zone'],
+    desc: 'Strategic dry land near Eleko Junction, Ibeju-Lekki — Lagos\' new economic frontier. 650sqm in a mapped layout with good road access. Deed of Assignment available. Proximity to Dangote Refinery, Lekki Deep Seaport, and the Lekki Free Zone makes this one of the best-value land investments in Lagos today.'
+  },
+
+  // ── SHORT STAY ──
+  {
+    id: 15, type: 'short',
+    title: 'Luxury 2-Bed Serviced Apartment', loc: 'Oniru Estate, VI', fullLoc: 'Oniru Estate, Victoria Island',
+    price: '₦75,000/night', priceNum: 75000, beds: 2, baths: 2, sqm: 115, floor: '3rd',
+    photo: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80',
+    emoji: '🌴', lat: 6.4355, lng: 3.4467, agentPhone: '2348035107130',
+    agentName: 'Amaka Osei', agentInitials: 'AO', agentRating: '5.0 (87 reviews)',
+    amenities: ['24/7 Electricity', 'Pool Access', 'Gym', 'Concierge', 'Airport Transfer', 'High-Speed WiFi', 'Netflix + DSTV', 'Daily Housekeeping', 'Fully Equipped Kitchen', 'Air Conditioning'],
+    desc: 'Stunning serviced apartment in exclusive Oniru Estate, steps from Bar Beach. Sleeps 4, fully equipped kitchen, smart TVs, high-speed WiFi, and daily housekeeping. Pool, gym, 24/7 security, and concierge in building. Airport transfers available. Min 2-night stay. Weekly discount available.'
+  },
+  {
+    id: 16, type: 'short',
+    title: 'Executive Studio Apartment', loc: 'Victoria Island', fullLoc: 'Ahmadu Bello Way, Victoria Island',
+    price: '₦35,000/night', priceNum: 35000, beds: 1, baths: 1, sqm: 60, floor: '5th',
+    photo: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80',
+    emoji: '🏙️', lat: 6.4281, lng: 3.4100, agentPhone: '2348035107130',
+    agentName: 'David Oduola', agentInitials: 'DO', agentRating: '4.8 (55 reviews)',
+    amenities: ['24/7 Electricity', 'High-Speed WiFi', 'Netflix + DSTV', 'Air Conditioning', 'Daily Housekeeping', 'Concierge', 'Parking', 'Kitchenette', 'City Views'],
+    desc: 'Stylish executive studio on Ahmadu Bello Way with 5th-floor city views. King-size bed, work desk, kitchenette, and glass-walled bathroom. WiFi, DSTV, and Netflix included. Daily housekeeping and concierge team. Walking distance to VI offices, banks, and the best restaurants. Min 1-night stay.'
+  },
+  {
+    id: 17, type: 'short',
+    title: '3-Bedroom Serviced Apartment', loc: 'Lekki Phase 1', fullLoc: 'Admiralty Way, Lekki Phase 1',
+    price: '₦90,000/night', priceNum: 90000, beds: 3, baths: 3, sqm: 165, floor: '2nd',
+    photo: 'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800&q=80',
+    emoji: '🏢', lat: 6.4565, lng: 3.4710, agentPhone: '2348035107130',
+    agentName: 'Yewande Coker', agentInitials: 'YC', agentRating: '4.9 (71 reviews)',
+    amenities: ['24/7 Electricity', 'Rooftop Pool', 'Gym', 'High-Speed WiFi', 'Netflix + DSTV', 'Daily Housekeeping', 'Fully Equipped Kitchen', 'Airport Transfer', 'Concierge', 'Air Conditioning'],
+    desc: 'Beautifully furnished 3-bedroom serviced apartment on Admiralty Way — perfect for families or groups. Sleeps 6. Modern kitchen, large lounge, private balcony. Rooftop pool, gym, and concierge in estate. Netflix, DSTV, and WiFi included. Daily housekeeping and optional airport transfers. Discounts for 14+ night stays. Great for relocation or corporate stays.'
+  },
+  {
+    id: 18, type: 'short',
+    title: 'Cozy 1-Bed Apartment', loc: 'Yaba', fullLoc: 'Sabo, Yaba',
+    price: '₦18,000/night', priceNum: 18000, beds: 1, baths: 1, sqm: 50, floor: '2nd',
+    photo: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80',
+    emoji: '🎓', lat: 6.5060, lng: 3.3780, agentPhone: '2348035107130',
+    agentName: 'Tunde Olawale', agentInitials: 'TO', agentRating: '4.7 (39 reviews)',
+    amenities: ['Generator Backup', 'WiFi', 'Smart TV', 'Air Conditioning', 'Security', 'Parking', 'Kitchenette'],
+    desc: 'Affordable, comfortable 1-bedroom short-stay in Sabo, Yaba — the heartbeat of Lagos\' tech scene. Kitchenette, smart TV, WiFi, and AC. Generator backup included. Walking distance to CcHub, Yaba market, and multiple eateries. Great for solo travellers, freelancers, or UNILAG visitors. Min 2-night stay.'
+  },
+  {
+    id: 19, type: 'short',
+    title: '4-Bedroom Holiday Villa', loc: 'Parkview Estate, Ikoyi', fullLoc: 'Parkview Estate, Ikoyi',
+    price: '₦180,000/night', priceNum: 180000, beds: 4, baths: 4, sqm: 320, floor: 'G + 1st',
+    photo: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80',
+    emoji: '🏖️', lat: 6.4460, lng: 3.4370, agentPhone: '2348035107130',
+    agentName: 'Sola Adeleke', agentInitials: 'SA', agentRating: '5.0 (43 reviews)',
+    amenities: ['24/7 Dedicated Generator', 'Private Pool', 'BBQ Terrace', 'Home Cinema', 'Fully Equipped Kitchen', 'Daily Chef (on request)', 'Airport Transfer', 'WiFi', 'DSTV + Netflix', 'Daily Housekeeping'],
+    desc: 'Exceptional 4-bedroom luxury villa in serene Parkview Estate, Ikoyi. Private swimming pool, BBQ terrace, home cinema, and chef-grade kitchen. All 4 bedrooms en-suite with walk-in closets. Daily housekeeping and optional private chef. 24/7 dedicated generator. Perfect for special occasions, family retreats, or high-profile guests. Min 3-night stay. Rooftop island views.'
+  }
 ];
 
-// Uploaded photos store (in-memory, keyed by listing index)
+
+// Uploaded photos store (in-memory)
 const uploadedPhotos = {};
 let currentPage='home', currentListingType='all', currentDetail=0, previousPage='listings';
 let activeTab='rent', selectedRole='tenant', agentPhotoDataUrl=null;
 
 // ── PAGE ROUTING ──
 function showPage(page){
-  // Gate agent dashboard behind login
-  if(page==='agent' && !currentUser){
-    openAuth();
-    showToast('Please log in to access your dashboard','error');
-    return;
-  }
+  if(page==='agent' && !currentUser){ openAuth(); showToast('Please log in to access your dashboard','error'); return; }
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById(page+'-page').classList.add('active');
   window.scrollTo(0,0);
   currentPage=page;
   if(page==='listings') renderListings(PROPS);
   if(page==='agent') renderDashboard();
-  // Also re-render featured in case it wasn't ready yet
-  if(page==='home'){
-    renderFeatured();
-    setTimeout(()=>initHomeMap(), 300);
-  }
+  if(page==='home'){ renderFeatured(); setTimeout(()=>initHomeMap(), 300); }
 }
 
 function showListings(type,area){
@@ -1479,24 +1649,17 @@ function applyFilters(){
   const bedVal=document.querySelector('input[name="beds"]:checked')?.value||'any';
   const minP=parseInt(document.getElementById('f-min')?.value)||0;
   const maxP=parseInt(document.getElementById('f-max')?.value)||Infinity;
-
-  // neighbourhood checkboxes — collect checked LGAs
   const checkedHoods=Array.from(document.querySelectorAll('.fp-hood-cb:checked')).map(el=>el.value.toLowerCase());
-
   let arr=PROPS.filter(p=>{
-    // type
     if(p.type==='rent'&&!rentOn) return false;
     if(p.type==='buy'&&!buyOn) return false;
     if(p.type==='short'&&!shortOn) return false;
-    // beds
     if(bedVal!=='any'){
       const b=parseInt(bedVal);
       if(bedVal==='4'&&p.beds<4) return false;
       if(bedVal!=='4'&&p.beds!==b) return false;
     }
-    // price
     if(p.priceNum<minP||p.priceNum>maxP) return false;
-    // neighbourhood (if any selected)
     if(checkedHoods.length>0){
       const locL=p.loc.toLowerCase();
       if(!checkedHoods.some(h=>locL.includes(h))) return false;
@@ -1507,7 +1670,7 @@ function applyFilters(){
   showToast(`${arr.length} propert${arr.length===1?'y':'ies'} found`);
 }
 
-function goBack(){showPage(previousPage==='home'?'home':'listings')}
+function goBack(){ showPage(previousPage==='home'?'home':'listings'); }
 
 function showDetail(id){
   previousPage=currentPage;
@@ -1520,40 +1683,42 @@ function showDetail(id){
   document.getElementById('d-beds').textContent=p.beds||'—';
   document.getElementById('d-baths').textContent=p.baths||'—';
   document.getElementById('d-sqm').textContent=p.sqm;
+  document.getElementById('d-floor').textContent=p.floor||'—';
   document.getElementById('detail-desc').textContent=p.desc;
 
-  // Update map
-  const mapEl=document.getElementById('detail-map');
-  if(mapEl){
-    const q=encodeURIComponent(p.fullLoc+', Lagos, Nigeria');
-    mapEl.src=`https://maps.google.com/maps?q=${q}&output=embed&z=15`;
-  }
+  // Amenities
+  const amenEl=document.getElementById('detail-amenities');
+  if(amenEl && p.amenities) amenEl.innerHTML=p.amenities.map(a=>`<div class="amenity">${a}</div>`).join('');
 
-  // Update agent contact links
+  // Agent info
+  document.getElementById('agent-name').textContent=p.agentName||'EasyHomes Agent';
+  document.getElementById('agent-avatar').textContent=p.agentInitials||'EH';
+  document.querySelector('.agent-rating').textContent=`★★★★★ ${p.agentRating||'5.0'}`;
+
+  // Agent contact links
   const phone=p.agentPhone||'2348000000000';
   const waBtn=document.getElementById('wa-btn');
   const callBtn=document.getElementById('call-btn');
   if(waBtn) waBtn.href=`https://wa.me/${phone}?text=${encodeURIComponent('Hi, I saw your listing on EasyHomes: '+p.title+', '+p.loc+'. I\'m interested.')}`;
   if(callBtn) callBtn.href=`tel:+${phone}`;
 
-  // Init detail map
-  setTimeout(()=>initDetailMap(p), 100);
-
-  // Handle photos if uploaded, else show emoji
+  // Hero card images — use uploaded photos first, then Unsplash, then emoji
   const photos=uploadedPhotos[id]||[];
   const mainEl=document.getElementById('detail-main-img');
   const sm1El=document.getElementById('detail-sm1');
   const sm2El=document.getElementById('detail-sm2');
-
-  if(photos.length>0){
-    mainEl.innerHTML=`<img src="${photos[0]}" alt="Property photo">`;
-    sm1El.innerHTML=photos[1]?`<img src="${photos[1]}" alt="Photo 2">`:`<span>🌿</span>`;
-    sm2El.innerHTML=photos[2]?`<img src="${photos[2]}" alt="Photo 3">`:`<span>🛋️</span>`;
+  const primaryPhoto = photos.length>0 ? photos[0] : (p.photo||null);
+  if(primaryPhoto){
+    mainEl.innerHTML=`<img src="${primaryPhoto}" alt="Property photo" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0" onerror="this.parentElement.innerHTML='<span style=\"font-size:6rem\">${p.emoji}</span>'">`;
+    sm1El.innerHTML=photos[1]?`<img src="${photos[1]}" alt="Photo 2" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">`:`<span style="font-size:2.5rem">🏙️</span>`;
+    sm2El.innerHTML=photos[2]?`<img src="${photos[2]}" alt="Photo 3" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">`:`<span style="font-size:2.5rem">🛋️</span>`;
   } else {
     mainEl.innerHTML=`<span style="font-size:6rem">${p.emoji}</span>`;
-    sm1El.innerHTML='<span>🌿</span>';
-    sm2El.innerHTML='<span>🛋️</span>';
+    sm1El.innerHTML='<span style="font-size:2.5rem">🌿</span>';
+    sm2El.innerHTML='<span style="font-size:2.5rem">🛋️</span>';
   }
+
+  setTimeout(()=>initDetailMap(p), 100);
   showPage('detail');
 }
 
@@ -1562,8 +1727,9 @@ function propCard(p){
   const photos=uploadedPhotos[p.id]||[];
   const badgeCls=p.type==='rent'?'badge-rent':p.type==='buy'?'badge-buy':'badge-short';
   const badgeTxt=p.type==='rent'?'For Rent':p.type==='buy'?'For Sale':'Short Stay';
-  const imgContent=photos.length>0
-    ?`<img src="${photos[0]}" alt="${p.title}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">`
+  const imgSrc=photos.length>0 ? photos[0] : (p.photo||null);
+  const imgContent=imgSrc
+    ?`<img src="${imgSrc}" alt="${p.title}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" loading="lazy" onerror="this.style.display='none'">`
     :`<span class="emoji-fallback">${p.emoji}</span>`;
   return `
   <div class="prop-card" onclick="showDetail(${p.id})">
@@ -1603,105 +1769,63 @@ function renderFeatured(){
   if(grid) grid.innerHTML=PROPS.slice(0,6).map(propCard).join('');
 }
 
+// ── FAQ ──
+const FAQS = [
+  { q: 'How do I rent a property on EasyHomes?', a: 'Browse listings, click on a property you like, and send an enquiry directly to the agent. You can also WhatsApp or call the agent. Our team can guide you through the process if needed.' },
+  { q: 'Are all listings on EasyHomes verified?', a: 'Yes. Every listing is reviewed by our team before it goes live. We confirm the property exists, the agent is registered, and the details are accurate. No ghost properties.' },
+  { q: 'What are typical agency fees in Lagos?', a: 'Standard agency fees in Lagos are 10% of the annual rent, paid once per tenancy. Legal/agreement fees are typically 5–10% additional. Always confirm fees upfront with the agent.' },
+  { q: 'Can I negotiate the rent?', a: 'Absolutely. Most landlords in Lagos are open to negotiation, especially if you are paying multiple years upfront. Our agents will guide you on what is reasonable for each area.' },
+  { q: 'How do I list my property as an agent or landlord?', a: 'Create a free account, select "Agent / Landlord" as your role, and click "Add New Listing" from your dashboard. Your listing will be reviewed and live within 24 hours.' },
+  { q: 'Is EasyHomes free to use?', a: 'Yes, browsing listings and contacting agents is completely free. We offer premium plans for agents who want more visibility and leads.' }
+];
+
+function renderFAQ(){
+  const el=document.getElementById('faq-list');
+  if(!el) return;
+  el.innerHTML=FAQS.map((f,i)=>`
+    <div style="background:#fff;border-radius:12px;border:1px solid var(--gray-light);overflow:hidden">
+      <div onclick="toggleFaq(${i})" style="padding:18px 20px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:600;font-size:0.9rem">
+        <span>${f.q}</span><span id="faq-icon-${i}" style="font-size:1.1rem;transition:transform .2s;flex-shrink:0;margin-left:10px">+</span>
+      </div>
+      <div id="faq-body-${i}" style="display:none;padding:0 20px 18px;color:var(--gray);font-size:0.87rem;line-height:1.7;font-weight:300">${f.a}</div>
+    </div>`).join('');
+}
+
+function toggleFaq(i){
+  const body=document.getElementById('faq-body-'+i);
+  const icon=document.getElementById('faq-icon-'+i);
+  const open=body.style.display==='none';
+  body.style.display=open?'block':'none';
+  icon.textContent=open?'−':'+';
+}
+
 async function renderDashboard(){
   if(!currentUser) return;
   const name=(currentUser.user_metadata&&currentUser.user_metadata.first_name)||currentUser.email.split('@')[0];
   const wel=document.getElementById('agent-welcome');
   if(wel) wel.textContent='Welcome back, '+name+' 👋';
 
-  // Load real listings from Supabase
-  const {data:listings,error}=await sbClient
-    .from('listings')
-    .select('*')
-    .eq('agent_id',currentUser.id)
-    .order('created_at',{ascending:false});
-
+  const {data:listings,error}=await sbClient.from('listings').select('*').eq('agent_id',currentUser.id).order('created_at',{ascending:false});
   const listEl=document.getElementById('agent-listings');
   const statCards=document.querySelectorAll('.stat-n');
   const statTrends=document.querySelectorAll('.stat-trend');
 
   if(error||!listings||listings.length===0){
-    // Zero state
-    if(statCards.length>=4){
-      statCards[0].textContent='0';statCards[1].textContent='0';
-      statCards[2].textContent='0';statCards[3].textContent='0';
-    }
-    if(statTrends.length>=4){
-      statTrends[0].textContent='No listings yet';statTrends[0].className='stat-trend';
-      statTrends[1].textContent='—';statTrends[1].className='stat-trend';
-      statTrends[2].textContent='No enquiries yet';statTrends[2].className='stat-trend';
-      statTrends[3].textContent='—';statTrends[3].className='stat-trend';
-    }
-    if(listEl) listEl.innerHTML=`
-      <div style="text-align:center;padding:40px 20px;color:var(--gray-mid)">
-        <div style="font-size:3rem;margin-bottom:14px">🏠</div>
-        <div style="font-weight:600;font-size:0.95rem;color:var(--dark);margin-bottom:6px">No listings yet</div>
-        <div style="font-size:0.85rem;font-weight:300;margin-bottom:20px">Click "Add New Listing" to publish your first property.</div>
-        <button onclick="openAddListing()" style="padding:10px 22px;background:var(--green);color:#fff;border:none;border-radius:9px;font-family:var(--font-body);font-weight:700;font-size:0.85rem;cursor:pointer">+ Add First Listing</button>
-      </div>`;
+    if(statCards.length>=4){ statCards[0].textContent='0'; statCards[1].textContent='0'; statCards[2].textContent='0'; statCards[3].textContent='0'; }
+    if(listEl) listEl.innerHTML=`<div style="text-align:center;padding:40px 20px;color:var(--gray-mid)"><div style="font-size:3rem;margin-bottom:14px">🏠</div><div style="font-weight:600;font-size:0.95rem;color:var(--dark);margin-bottom:6px">No listings yet</div><div style="font-size:0.85rem;font-weight:300;margin-bottom:20px">Click "Add New Listing" to publish your first property.</div><button onclick="openAddListing()" style="padding:10px 22px;background:var(--green);color:#fff;border:none;border-radius:9px;font-family:var(--font-body);font-weight:700;font-size:0.85rem;cursor:pointer">+ Add First Listing</button></div>`;
   } else {
-    // Update stats
-    if(statCards.length>=4){
-      statCards[0].textContent=listings.length;
-      statCards[1].textContent='—';
-      statCards[2].textContent='—';
-      statCards[3].textContent='0';
-    }
-    if(statTrends.length>=4){
-      statTrends[0].textContent='Active';statTrends[0].className='stat-trend trend-up';
-      statTrends[1].textContent='—';statTrends[1].className='stat-trend';
-      statTrends[2].textContent='—';statTrends[2].className='stat-trend';
-      statTrends[3].textContent='—';statTrends[3].className='stat-trend';
-    }
-    // Render listing rows
-    if(listEl) listEl.innerHTML=listings.map(l=>`
-      <div class="listing-row">
-        <div class="lr-img">
-          ${l.photo_urls&&l.photo_urls.length>0
-            ?`<img src="${l.photo_urls[0]}" alt="${l.property_title}" style="width:100%;height:100%;object-fit:cover;border-radius:8px">`
-            :'🏠'}
-        </div>
-        <div class="lr-info">
-          <div class="lr-name">${l.property_title||'Untitled'}</div>
-          <div class="lr-loc">${l.neighbourhood||''} · ${l.bedrooms||'?'} bed · ₦${Number(l.price||0).toLocaleString()}</div>
-          <span class="lr-status status-active">${l.listing_type||'For Rent'}</span>
-        </div>
-        <div class="lr-price">₦${Number(l.price||0).toLocaleString()}</div>
-      </div>`).join('');
+    if(statCards.length>=4){ statCards[0].textContent=listings.length; }
+    if(listEl) listEl.innerHTML=listings.map(l=>`<div class="listing-row"><div class="lr-img">${l.photo_urls&&l.photo_urls.length>0?`<img src="${l.photo_urls[0]}" alt="${l.property_title}" style="width:100%;height:100%;object-fit:cover;border-radius:8px">`:'🏠'}</div><div class="lr-info"><div class="lr-name">${l.property_title||'Untitled'}</div><div class="lr-loc">${l.neighbourhood||''} · ${l.bedrooms||'?'} bed · ₦${Number(l.price||0).toLocaleString()}</div><span class="lr-status status-active">${l.listing_type||'For Rent'}</span></div><div class="lr-price">₦${Number(l.price||0).toLocaleString()}</div></div>`).join('');
   }
 
-  // Load enquiries for this agent only
-  const {data:enqs}=await sbClient
-    .from('enquiries')
-    .select('id,property_title,sender_name,sender_phone,message,created_at')
-    .eq('agent_id', currentUser.id)
-    .order('created_at',{ascending:false})
-    .limit(5);
-
+  const {data:enqs}=await sbClient.from('enquiries').select('id,property_title,sender_name,sender_phone,message,created_at').eq('agent_id',currentUser.id).order('created_at',{ascending:false}).limit(5);
   const enqEl=document.getElementById('agent-enquiries');
   if(enqEl){
     if(!enqs||enqs.length===0){
-      enqEl.innerHTML=`
-        <div style="text-align:center;padding:32px 20px;color:var(--gray-mid)">
-          <div style="font-size:2.5rem;margin-bottom:12px">📩</div>
-          <div style="font-weight:600;font-size:0.9rem;color:var(--dark);margin-bottom:5px">No enquiries yet</div>
-          <div style="font-size:0.82rem;font-weight:300">Enquiries from interested buyers and renters will appear here.</div>
-        </div>`;
+      enqEl.innerHTML=`<div style="text-align:center;padding:32px 20px;color:var(--gray-mid)"><div style="font-size:2.5rem;margin-bottom:12px">📩</div><div style="font-weight:600;font-size:0.9rem;color:var(--dark);margin-bottom:5px">No enquiries yet</div><div style="font-size:0.82rem;font-weight:300">Enquiries from interested buyers and renters will appear here.</div></div>`;
     } else {
       if(statCards[2]) statCards[2].textContent=enqs.length;
-      enqEl.innerHTML=enqs.map(e=>`
-        <div class="enquiry-item">
-          <div class="eq-top">
-            <span class="eq-name">${e.sender_name||'Unknown'}</span>
-            <span class="eq-time">${new Date(e.created_at).toLocaleDateString('en-NG',{day:'numeric',month:'short'})}</span>
-          </div>
-          <div class="eq-prop">Re: ${e.property_title||'—'}</div>
-          <div class="eq-msg">${e.message||''}</div>
-          <div class="eq-actions">
-            ${e.sender_phone?`<a href="tel:${e.sender_phone}" class="eq-btn eq-reply" style="text-decoration:none">📞 Call</a>`:''}
-            <span class="eq-btn eq-ignore">Dismiss</span>
-          </div>
-        </div>`).join('');
+      enqEl.innerHTML=enqs.map(e=>`<div class="enquiry-item"><div class="eq-top"><span class="eq-name">${e.sender_name||'Unknown'}</span><span class="eq-time">${new Date(e.created_at).toLocaleDateString('en-NG',{day:'numeric',month:'short'})}</span></div><div class="eq-prop">Re: ${e.property_title||'—'}</div><div class="eq-msg">${e.message||''}</div><div class="eq-actions">${e.sender_phone?`<a href="tel:${e.sender_phone}" class="eq-btn eq-reply" style="text-decoration:none">📞 Call</a>`:''}<span class="eq-btn eq-ignore">Dismiss</span></div></div>`).join('');
     }
   }
 }
@@ -1711,13 +1835,9 @@ let pendingPhotos=[];
 function handlePhotoUpload(event){
   const files=Array.from(event.target.files);
   const remaining=8-pendingPhotos.length;
-  const toAdd=files.slice(0,remaining);
-  toAdd.forEach(file=>{
+  files.slice(0,remaining).forEach(file=>{
     const reader=new FileReader();
-    reader.onload=e=>{
-      pendingPhotos.push(e.target.result);
-      renderPhotoPreview();
-    };
+    reader.onload=e=>{ pendingPhotos.push(e.target.result); renderPhotoPreview(); };
     reader.readAsDataURL(file);
   });
   if(files.length>remaining) showToast('Max 8 photos allowed');
@@ -1726,82 +1846,49 @@ function handlePhotoUpload(event){
 function renderPhotoPreview(){
   const grid=document.getElementById('photo-preview-grid');
   if(!grid) return;
-  grid.innerHTML=pendingPhotos.map((src,i)=>`
-  <div class="photo-preview-item">
-    <img src="${src}" alt="Preview ${i+1}">
-    <button class="remove-photo" onclick="removePhoto(${i})">✕</button>
-  </div>`).join('');
+  grid.innerHTML=pendingPhotos.map((src,i)=>`<div class="photo-preview-item"><img src="${src}" alt="Preview ${i+1}"><button class="remove-photo" onclick="removePhoto(${i})">✕</button></div>`).join('');
   const zone=document.getElementById('upload-drop-zone');
-  if(zone && pendingPhotos.length>0){
-    zone.querySelector('.photo-upload-text').innerHTML=`<strong>${pendingPhotos.length} photo${pendingPhotos.length>1?'s':''} selected</strong> — click to add more`;
-  }
+  if(zone && pendingPhotos.length>0) zone.querySelector('.photo-upload-text').innerHTML=`<strong>${pendingPhotos.length} photo${pendingPhotos.length>1?'s':''} selected</strong> — click to add more`;
 }
 
-function removePhoto(i){
-  pendingPhotos.splice(i,1);
-  renderPhotoPreview();
-}
+function removePhoto(i){ pendingPhotos.splice(i,1); renderPhotoPreview(); }
 
-// Drag & drop for listing photos
 document.addEventListener('DOMContentLoaded',()=>{
   const zone=document.getElementById('upload-drop-zone');
   if(zone){
     zone.addEventListener('dragover',e=>{e.preventDefault();zone.style.borderColor='var(--green)'});
     zone.addEventListener('dragleave',()=>{zone.style.borderColor='var(--gray-light)'});
-    zone.addEventListener('drop',e=>{
-      e.preventDefault();zone.style.borderColor='var(--gray-light)';
-      const fake={target:{files:e.dataTransfer.files}};
-      handlePhotoUpload(fake);
-    });
+    zone.addEventListener('drop',e=>{e.preventDefault();zone.style.borderColor='var(--gray-light)';handlePhotoUpload({target:{files:e.dataTransfer.files}});});
   }
+  renderFeatured();
+  setTimeout(()=>initHomeMap(), 400);
 });
 
-// Agent profile photo preview
 function handleAgentPhotoPreview(event){
   const file=event.target.files[0];
   if(!file) return;
   const reader=new FileReader();
-  reader.onload=e=>{
-    agentPhotoDataUrl=e.target.result;
-    const preview=document.getElementById('agent-photo-preview');
-    preview.innerHTML=`<img src="${agentPhotoDataUrl}" alt="Profile" style="width:100%;height:100%;object-fit:cover">`;
-  };
+  reader.onload=e=>{ agentPhotoDataUrl=e.target.result; const preview=document.getElementById('agent-photo-preview'); preview.innerHTML=`<img src="${agentPhotoDataUrl}" alt="Profile" style="width:100%;height:100%;object-fit:cover">`; };
   reader.readAsDataURL(file);
 }
 
 // ── MODALS ──
-function openAuth(){document.getElementById('auth-modal').classList.add('open')}
-function openAddListing(){
-  pendingPhotos=[];
-  renderPhotoPreview();
-  document.getElementById('add-listing-modal').classList.add('open');
-}
-function closeModal(id){document.getElementById(id).classList.remove('open')}
-
-document.querySelectorAll('.modal-overlay').forEach(overlay=>{
-  overlay.addEventListener('click',e=>{if(e.target===overlay) overlay.classList.remove('open')});
-});
+function openAuth(){ document.getElementById('auth-modal').classList.add('open'); }
+function openAddListing(){ pendingPhotos=[]; renderPhotoPreview(); document.getElementById('add-listing-modal').classList.add('open'); }
+function closeModal(id){ document.getElementById(id).classList.remove('open'); }
+document.querySelectorAll('.modal-overlay').forEach(overlay=>{ overlay.addEventListener('click',e=>{ if(e.target===overlay) overlay.classList.remove('open'); }); });
 
 // ── AUTH STATE ──
 let currentUser=null;
-
 function setLoggedIn(user){
   currentUser=user;
   const name=(user.user_metadata&&user.user_metadata.first_name)||user.email.split('@')[0];
-  const role=(user.user_metadata&&user.user_metadata.role)||'tenant';
   const btn=document.getElementById('nav-auth-btn');
   btn.textContent='👤 '+name;
-  // replace onclick cleanly
   const newBtn=btn.cloneNode(true);
   newBtn.addEventListener('click',doLogout);
   btn.parentNode.replaceChild(newBtn,btn);
-  // update dashboard welcome if visible
-  const wel=document.getElementById('agent-welcome');
-  if(wel) wel.textContent='Welcome back, '+name+' 👋';
-  // store role so dashboard knows
-  currentUser._role=role;
 }
-
 function setLoggedOut(){
   currentUser=null;
   const btn=document.getElementById('nav-auth-btn');
@@ -1809,31 +1896,21 @@ function setLoggedOut(){
   newBtn.textContent='Login / Sign Up';
   newBtn.addEventListener('click',openAuth);
   btn.parentNode.replaceChild(newBtn,btn);
-  // if on agent page, bounce back to home
   if(currentPage==='agent') showPage('home');
 }
-
-async function doLogout(){
-  if(sbClient) await sbClient.auth.signOut();
-  showToast('Logged out. See you soon! 👋');
-  showPage('home');
-}
-
-// ── AUTH ──
+async function doLogout(){ if(sbClient) await sbClient.auth.signOut(); showToast('Logged out. See you soon! 👋'); showPage('home'); }
 function setAuthTab(tab){
   document.getElementById('tab-login').classList.toggle('active',tab==='login');
   document.getElementById('tab-signup').classList.toggle('active',tab==='signup');
   document.getElementById('auth-login-panel').style.display=tab==='login'?'block':'none';
   document.getElementById('auth-signup-panel').style.display=tab==='signup'?'block':'none';
 }
-
 function selectRole(role){
   selectedRole=role;
   document.getElementById('role-tenant').classList.toggle('selected',role==='tenant');
   document.getElementById('role-agent').classList.toggle('selected',role==='agent');
   document.getElementById('agent-photo-section').style.display=role==='agent'?'block':'none';
 }
-
 async function doLogin(){
   if(!sbClient){showToast('Still loading, please try again','error');return}
   const email=document.getElementById('login-email').value.trim();
@@ -1848,7 +1925,6 @@ async function doLogin(){
   const name=(data.user.user_metadata&&data.user.user_metadata.first_name)||email.split('@')[0];
   showToast('Welcome back, '+name+'! 👋');
 }
-
 async function doSignup(){
   if(!sbClient){showToast('Still loading, please try again','error');return}
   const firstName=document.getElementById('signup-firstname').value.trim();
@@ -1867,14 +1943,9 @@ async function doSignup(){
   btn.textContent='Create Account →';btn.disabled=false;
   if(error){showToast('❌ '+error.message,'error');return}
   closeModal('auth-modal');
-  // If email confirm is OFF, user is logged in immediately
-  if(data.session){
-    showToast('🎉 Account created! Welcome to EasyHomes, '+firstName+'!');
-  } else {
-    showToast('🎉 Account created! You can now log in.');
-  }
+  if(data.session) showToast('🎉 Account created! Welcome to EasyHomes, '+firstName+'!');
+  else showToast('🎉 Account created! You can now log in.');
 }
-
 async function doPasswordReset(){
   if(!sbClient){showToast('Still loading, please try again','error');return}
   const email=document.getElementById('login-email').value.trim();
@@ -1883,19 +1954,10 @@ async function doPasswordReset(){
   if(error){showToast('❌ '+error.message,'error');return}
   showToast('📧 Password reset email sent! Check your inbox.');
 }
-
-// ── GOOGLE LOGIN ──
 async function doGoogleLogin(){
   if(!sbClient){showToast('Still loading, please try again','error');return}
-  const {error}=await sbClient.auth.signInWithOAuth({
-    provider:'google',
-    options:{
-      redirectTo:'https://easywise.github.io/EasyHomes/',
-      queryParams:{access_type:'offline',prompt:'consent'}
-    }
-  });
-  if(error){showToast('❌ Google login failed: '+error.message,'error');}
-  // On success, browser redirects to Google — no further action needed here
+  const {error}=await sbClient.auth.signInWithOAuth({provider:'google',options:{redirectTo:'https://easywise.github.io/EasyHomes/',queryParams:{access_type:'offline',prompt:'consent'}}});
+  if(error) showToast('❌ Google login failed: '+error.message,'error');
 }
 
 // ── CONTACT FORM ──
@@ -1907,355 +1969,153 @@ async function submitContactForm(){
   const type=document.getElementById('ct-type').value;
   const message=document.getElementById('ct-message').value.trim();
   const msgEl=document.getElementById('ct-msg');
-
   if(!name){showToast('⚠️ Please enter your name','error');return}
   if(!message){showToast('⚠️ Please enter a message','error');return}
   if(!email&&!phone){showToast('⚠️ Please enter an email or phone number','error');return}
-
   const btn=document.getElementById('ct-btn');
   btn.textContent='Sending…';btn.disabled=true;
-  msgEl.textContent='';
-
-  const {error}=await sbClient.from('messages').insert([{
-    name, phone, email,
-    subject: type,
-    message
-  }]);
-
+  const {error}=await sbClient.from('messages').insert([{name,phone,email,subject:type,message}]);
   btn.textContent='Send Message →';btn.disabled=false;
-
-  if(error){
-    msgEl.textContent='❌ Failed to send: '+error.message;
-    msgEl.style.color='var(--red)';
-    return;
-  }
-
-  // Clear form
+  if(error){msgEl.textContent='❌ Failed to send: '+error.message;msgEl.style.color='var(--red)';return}
   document.getElementById('ct-name').value='';
   document.getElementById('ct-phone').value='';
   document.getElementById('ct-email').value='';
   document.getElementById('ct-message').value='';
-
   msgEl.textContent='✅ Message sent! We\'ll get back to you within 24 hours.';
   msgEl.style.color='var(--green)';
   showToast('✅ Message sent successfully!');
 }
 
 // ── SEARCH TABS ──
-function setTab(el,type){
-  document.querySelectorAll('.stab').forEach(t=>t.classList.remove('active'));
-  el.classList.add('active');activeTab=type;
-}
+function setTab(el,type){ document.querySelectorAll('.stab').forEach(t=>t.classList.remove('active')); el.classList.add('active'); activeTab=type; }
 
-// ── UPLOAD PHOTOS TO SUPABASE STORAGE ──
+// ── UPLOAD PHOTOS ──
 async function uploadPhotosToStorage(listingId){
   const urls=[];
   for(let i=0;i<pendingPhotos.length;i++){
     const dataUrl=pendingPhotos[i];
-    // Convert base64 dataURL to a Blob
     const res=await fetch(dataUrl);
     const blob=await res.blob();
     const ext=blob.type.split('/')[1]||'jpg';
     const path=`${currentUser.id}/${listingId}/photo_${i+1}.${ext}`;
-    const {data,error}=await sbClient.storage
-      .from('property-photos')
-      .upload(path,blob,{contentType:blob.type,upsert:true});
-    if(error){
-      console.warn('Photo upload failed:',error.message);
-      continue;
-    }
-    const {data:{publicUrl}}=sbClient.storage
-      .from('property-photos')
-      .getPublicUrl(path);
+    const {data,error}=await sbClient.storage.from('property-photos').upload(path,blob,{contentType:blob.type,upsert:true});
+    if(error){console.warn('Photo upload failed:',error.message);continue}
+    const {data:{publicUrl}}=sbClient.storage.from('property-photos').getPublicUrl(path);
     urls.push(publicUrl);
   }
   return urls;
 }
 
-// ── SUBMIT LISTING ──
 async function submitListing(){
   if(!sbClient){showToast('Still loading, please try again','error');return}
   if(!currentUser){showToast('⚠️ Please log in to publish a listing','error');openAuth();return}
-
   const title=document.getElementById('l-title').value.trim();
   const price=document.getElementById('l-price').value;
   const hood=document.getElementById('l-hood').value;
-  const address=document.getElementById('l-address').value.trim();
-
   if(!title){showToast('⚠️ Please enter a property title','error');return}
   if(!price){showToast('⚠️ Please enter a price','error');return}
   if(!hood){showToast('⚠️ Please select a neighbourhood','error');return}
-
   const amenities=Array.from(document.querySelectorAll('.l-amenity:checked')).map(el=>el.value);
-
   const btn=document.getElementById('publish-btn');
   const msg=document.getElementById('listing-msg');
   btn.textContent='Publishing…';btn.disabled=true;
-  msg.textContent='';msg.style.color='';
-
-  // Generate a temp listing ID for the storage path
   const tempId=crypto.randomUUID();
-
-  // Upload photos first if any
   let photoUrls=[];
-  if(pendingPhotos.length>0){
-    btn.textContent='Uploading photos…';
-    photoUrls=await uploadPhotosToStorage(tempId);
-  }
-
-  const listing={
-    agent_id: currentUser.id,
-    property_title: title,
-    listing_type: document.getElementById('l-type').value,
-    property_type: document.getElementById('l-proptype').value,
-    price: Number(price),
-    price_frequency: document.getElementById('l-freq').value,
-    bedrooms: document.getElementById('l-beds').value,
-    bathrooms: document.getElementById('l-baths').value,
-    neighbourhood: hood,
-    address: address,
-    description: document.getElementById('l-desc').value.trim(),
-    amenities: amenities,
-    photo_urls: photoUrls,
-    agent_name: (currentUser.user_metadata?.first_name||'')+' '+(currentUser.user_metadata?.last_name||''),
-    agent_email: currentUser.email,
-    agent_phone: currentUser.user_metadata?.phone||''
-  };
-
+  if(pendingPhotos.length>0){btn.textContent='Uploading photos…';photoUrls=await uploadPhotosToStorage(tempId);}
+  const listing={agent_id:currentUser.id,property_title:title,listing_type:document.getElementById('l-type').value,property_type:document.getElementById('l-proptype').value,price:Number(price),price_frequency:document.getElementById('l-freq').value,bedrooms:document.getElementById('l-beds').value,bathrooms:document.getElementById('l-baths').value,neighbourhood:hood,address:document.getElementById('l-address').value.trim(),description:document.getElementById('l-desc').value.trim(),amenities,photo_urls:photoUrls,agent_name:(currentUser.user_metadata?.first_name||'')+' '+(currentUser.user_metadata?.last_name||''),agent_email:currentUser.email,agent_phone:currentUser.user_metadata?.phone||''};
   btn.textContent='Saving listing…';
-
   const {error}=await sbClient.from('listings').insert([listing]);
-
   btn.textContent='🏠 Publish Listing';btn.disabled=false;
-
-  if(error){
-    msg.textContent='❌ Error: '+error.message;
-    msg.style.color='var(--red)';
-    showToast('❌ Failed to publish listing','error');
-    return;
-  }
-
-  // Reset form
-  document.getElementById('l-title').value='';
-  document.getElementById('l-price').value='';
-  document.getElementById('l-address').value='';
-  document.getElementById('l-desc').value='';
+  if(error){msg.textContent='❌ Error: '+error.message;msg.style.color='var(--red)';showToast('❌ Failed to publish listing','error');return}
+  document.getElementById('l-title').value='';document.getElementById('l-price').value='';document.getElementById('l-address').value='';document.getElementById('l-desc').value='';
   document.querySelectorAll('.l-amenity').forEach(el=>el.checked=false);
-  pendingPhotos=[];
-  renderPhotoPreview();
-
+  pendingPhotos=[];renderPhotoPreview();
   closeModal('add-listing-modal');
   showToast('🏠 Listing published successfully! ✅');
-
-  // Refresh dashboard if on agent page
   if(currentPage==='agent') renderDashboard();
 }
 
-// ── SUBMIT ENQUIRY ──
 async function submitEnquiry(){
   if(!sbClient){showToast('Still loading, please try again','error');return}
-
   const name=document.getElementById('eq-name').value.trim();
   const phone=document.getElementById('eq-phone').value.trim();
   const email=document.getElementById('eq-email').value.trim();
   const message=document.getElementById('eq-msg').value.trim();
-
   if(!name){showToast('⚠️ Please enter your name','error');return}
   if(!phone&&!email){showToast('⚠️ Please enter a phone number or email','error');return}
   if(!message){showToast('⚠️ Please enter a message','error');return}
-
   const prop=PROPS[currentDetail]||{};
-
-  const enquiry={
-    agent_id: prop.agentId||null,
-    property_id: null,
-    property_title: prop.title||'',
-    property_location: prop.loc||'',
-    sender_name: name,
-    sender_phone: phone,
-    sender_email: email,
-    message: message
-  };
-
   const btn=document.getElementById('eq-btn');
   btn.textContent='Sending…';btn.disabled=true;
-
-  const {error}=await sbClient.from('enquiries').insert([enquiry]);
-
+  const {error}=await sbClient.from('enquiries').insert([{agent_id:prop.agentId||null,property_id:null,property_title:prop.title||'',property_location:prop.loc||'',sender_name:name,sender_phone:phone,sender_email:email,message}]);
   btn.textContent='Send Enquiry';btn.disabled=false;
-
-  if(error){
-    showToast('❌ Failed to send enquiry: '+error.message,'error');
-    return;
-  }
-
-  // Clear fields
-  document.getElementById('eq-name').value='';
-  document.getElementById('eq-phone').value='';
-  document.getElementById('eq-email').value='';
-  document.getElementById('eq-msg').value='';
-
+  if(error){showToast('❌ Failed to send enquiry: '+error.message,'error');return}
+  document.getElementById('eq-name').value='';document.getElementById('eq-phone').value='';document.getElementById('eq-email').value='';document.getElementById('eq-msg').value='';
   showToast('✅ Enquiry sent! The agent will contact you soon 📞');
 }
 
 // ── TOAST ──
 function showToast(msg,type){
   const t=document.getElementById('toast');
-  t.textContent=msg;
-  t.className='toast'+(type==='error'?' error':'');
-  t.classList.add('show');
-  clearTimeout(window._toastTimer);
+  t.textContent=msg;t.className='toast'+(type==='error'?' error':'');
+  t.classList.add('show');clearTimeout(window._toastTimer);
   window._toastTimer=setTimeout(()=>t.classList.remove('show'),3400);
 }
 
 // ── MAPS ──
-let homeMap = null;
-let detailMap = null;
-let mapMarkers = [];
-let currentMapFilter = 'all';
+let homeMap=null, detailMap=null, mapMarkers=[], currentMapFilter='all';
 
 function initHomeMap(){
-  if(homeMap) return; // already initialised
-  const mapEl = document.getElementById('home-map');
+  if(homeMap) return;
+  const mapEl=document.getElementById('home-map');
   if(!mapEl) return;
-
-  homeMap = L.map('home-map', {
-    center: [6.465, 3.406], // Lagos centre
-    zoom: 12,
-    zoomControl: true,
-    scrollWheelZoom: false, // prevent page scroll hijack
-  });
-
-  // OpenStreetMap tiles — 100% free
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© <a href="https://openstreetmap.org">OpenStreetMap</a>',
-    maxZoom: 19,
-  }).addTo(homeMap);
-
-  // Add pins for all properties
+  homeMap=L.map('home-map',{center:[6.465,3.406],zoom:12,zoomControl:true,scrollWheelZoom:false});
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© <a href="https://openstreetmap.org">OpenStreetMap</a>',maxZoom:19}).addTo(homeMap);
   addMapPins(PROPS);
   updateMapCount(PROPS.length);
 }
 
 function makeMarkerIcon(type){
-  const colors = {rent:'#0d5c30', buy:'#c8851a', short:'#6c3fc5'};
-  const labels = {rent:'Rent', buy:'Sale', short:'Stay'};
-  const color = colors[type] || '#0d5c30';
-  const label = labels[type] || '';
-  return L.divIcon({
-    className: '',
-    html: `<div class="map-pin ${type}">₦ ${label}</div>`,
-    iconAnchor: [30, 14],
-    popupAnchor: [0, -16],
-  });
+  const colors={rent:'#0d5c30',buy:'#c8851a',short:'#6c3fc5'};
+  const labels={rent:'Rent',buy:'Sale',short:'Stay'};
+  return L.divIcon({className:'',html:`<div class="map-pin ${type}">₦ ${labels[type]||''}</div>`,iconAnchor:[30,14],popupAnchor:[0,-16]});
 }
 
 function addMapPins(props){
-  // Clear existing markers
-  mapMarkers.forEach(m => homeMap.removeLayer(m));
-  mapMarkers = [];
-
-  props.forEach(p => {
-    if(!p.lat || !p.lng) return;
-    const marker = L.marker([p.lat, p.lng], {icon: makeMarkerIcon(p.type)});
-
-    const bedsText = p.beds > 0 ? `🛏 ${p.beds} bed${p.beds>1?'s':''}` : '🌿 Land';
-    const popupHtml = `
-      <div class="map-popup">
-        <div class="map-popup-price">${p.price}</div>
-        <div class="map-popup-title">${p.title}</div>
-        <div class="map-popup-loc">📍 ${p.loc}</div>
-        <div class="map-popup-meta">
-          <span>${bedsText}</span>
-          ${p.baths>0?`<span>🚿 ${p.baths} bath${p.baths>1?'s':''}</span>`:''}
-          <span>📐 ${p.sqm}m²</span>
-        </div>
-        <button class="map-popup-btn" onclick="showDetail(${p.id});homeMap && homeMap.closePopup()">
-          View Property →
-        </button>
-      </div>`;
-
-    marker.bindPopup(popupHtml, {maxWidth: 240, minWidth: 220});
-    marker.addTo(homeMap);
-    mapMarkers.push(marker);
+  mapMarkers.forEach(m=>homeMap.removeLayer(m));mapMarkers=[];
+  props.forEach(p=>{
+    if(!p.lat||!p.lng) return;
+    const marker=L.marker([p.lat,p.lng],{icon:makeMarkerIcon(p.type)});
+    const bedsText=p.beds>0?`🛏 ${p.beds} bed${p.beds>1?'s':''}`:' Land';
+    marker.bindPopup(`<div class="map-popup"><div class="map-popup-price">${p.price}</div><div class="map-popup-title">${p.title}</div><div class="map-popup-loc">📍 ${p.loc}</div><div class="map-popup-meta"><span>${bedsText}</span>${p.baths>0?`<span>🚿 ${p.baths} bath${p.baths>1?'s':''}</span>`:''}<span>📐 ${p.sqm}m²</span></div><button class="map-popup-btn" onclick="showDetail(${p.id})">View Property →</button></div>`,{maxWidth:240,minWidth:220});
+    marker.addTo(homeMap);mapMarkers.push(marker);
   });
 }
 
-function filterMapPins(type, btn){
-  currentMapFilter = type;
-  // Update button styles
-  document.querySelectorAll('.map-filter-btn').forEach(b => b.classList.remove('active'));
+function filterMapPins(type,btn){
+  currentMapFilter=type;
+  document.querySelectorAll('.map-filter-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  // Filter
-  const filtered = type === 'all' ? PROPS : PROPS.filter(p => p.type === type);
-  addMapPins(filtered);
-  updateMapCount(filtered.length);
-  // Fit map to visible pins
-  if(filtered.length > 0){
-    const bounds = filtered.map(p => [p.lat, p.lng]);
-    homeMap.fitBounds(bounds, {padding: [40,40], maxZoom: 13});
-  }
+  const filtered=type==='all'?PROPS:PROPS.filter(p=>p.type===type);
+  addMapPins(filtered);updateMapCount(filtered.length);
+  if(filtered.length>0) homeMap.fitBounds(filtered.map(p=>[p.lat,p.lng]),{padding:[40,40],maxZoom:13});
 }
 
-function updateMapCount(n){
-  const el = document.getElementById('map-count');
-  if(el) el.textContent = `${n} propert${n===1?'y':'ies'} on map`;
-}
+function updateMapCount(n){ const el=document.getElementById('map-count'); if(el) el.textContent=`${n} propert${n===1?'y':'ies'} on map`; }
 
 function initDetailMap(p){
-  // Destroy old map if exists
-  if(detailMap){
-    detailMap.remove();
-    detailMap = null;
-  }
-  const mapEl = document.getElementById('detail-map');
-  if(!mapEl || !p.lat || !p.lng) return;
-
-  detailMap = L.map('detail-map', {
-    center: [p.lat, p.lng],
-    zoom: 15,
-    zoomControl: true,
-    scrollWheelZoom: false,
-  });
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© <a href="https://openstreetmap.org">OpenStreetMap</a>',
-    maxZoom: 19,
-  }).addTo(detailMap);
-
-  // Custom pin
-  const icon = L.divIcon({
-    className: '',
-    html: `<div style="background:var(--green);color:#fff;border-radius:50% 50% 50% 0;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:1rem;box-shadow:0 4px 12px rgba(13,92,48,0.5);border:2px solid #fff;transform:rotate(-45deg)"><span style="transform:rotate(45deg)">🏠</span></div>`,
-    iconAnchor: [16, 32],
-    popupAnchor: [0, -36],
-  });
-
-  L.marker([p.lat, p.lng], {icon})
-    .addTo(detailMap)
-    .bindPopup(`<div style="font-family:var(--font-body);padding:6px"><b>${p.title}</b><br><span style="color:var(--gray-mid);font-size:0.8rem">📍 ${p.fullLoc}</span></div>`)
-    .openPopup();
-}
-function toggleMobileMenu(){
-  document.getElementById('mobile-menu').classList.toggle('open');
-}
-function closeMobileMenu(){
-  document.getElementById('mobile-menu').classList.remove('open');
+  if(detailMap){detailMap.remove();detailMap=null;}
+  const mapEl=document.getElementById('detail-map');
+  if(!mapEl||!p.lat||!p.lng) return;
+  detailMap=L.map('detail-map',{center:[p.lat,p.lng],zoom:15,zoomControl:true,scrollWheelZoom:false});
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© <a href="https://openstreetmap.org">OpenStreetMap</a>',maxZoom:19}).addTo(detailMap);
+  const icon=L.divIcon({className:'',html:`<div style="background:var(--green);color:#fff;border-radius:50% 50% 50% 0;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:1rem;box-shadow:0 4px 12px rgba(13,92,48,0.5);border:2px solid #fff;transform:rotate(-45deg)"><span style="transform:rotate(45deg)">🏠</span></div>`,iconAnchor:[16,32],popupAnchor:[0,-36]});
+  L.marker([p.lat,p.lng],{icon}).addTo(detailMap).bindPopup(`<div style="font-family:var(--font-body);padding:6px"><b>${p.title}</b><br><span style="color:var(--gray-mid);font-size:0.8rem">📍 ${p.fullLoc}</span></div>`).openPopup();
 }
 
-// ── BACK TO TOP ──
-window.addEventListener('scroll',()=>{
-  const btn=document.getElementById('back-to-top');
-  if(btn) btn.classList.toggle('visible',window.scrollY>400);
-});
-
-// ── INIT ──
-// Render featured cards immediately on DOM ready (before Supabase loads)
-document.addEventListener('DOMContentLoaded',()=>{
-  renderFeatured();
-  setTimeout(()=>initHomeMap(), 400);
-});
-// (initialisation now runs inside window.addEventListener('load') above)
+function toggleMobileMenu(){ document.getElementById('mobile-menu').classList.toggle('open'); }
+function closeMobileMenu(){ document.getElementById('mobile-menu').classList.remove('open'); }
+window.addEventListener('scroll',()=>{ const btn=document.getElementById('back-to-top'); if(btn) btn.classList.toggle('visible',window.scrollY>400); });
 </script>
 </body>
 </html>
